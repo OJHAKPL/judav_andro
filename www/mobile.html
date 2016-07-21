@@ -1,0 +1,1817 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smartcard Global</title>
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/slideme.css">
+<link rel="stylesheet" href="css/google_font.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<script src="cordova.js"></script>
+<script src="js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>
+<script src="js/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script src="js/openfb.js"></script>
+<script src="js/common.js"></script>
+<script src="js/jquery.slideme2.js"></script>
+</head>
+<body>
+<div data-role="page" class="jqm-demos jqm-home" id="index" data-url="index">
+  <div role="main" class="ui-content jqm-content">
+    <div class="home-logo"><img class="b-radiu-logo" src="images/logo.png" alt="" /></div>
+    <div data-role="navbar" class="home-buttons">
+      <ul id="horizental_nav">
+        <li><a href="#login" data-transition="slide" id="bg_for" style="background:#27457b; color:#fff;">Login</a></li>
+        <li><a href="#register" data-transition="slide" id="bg_for" style="background:#27457b; color:#fff;">Register</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div data-role="page" class="jqm-demos jqm-home jqm-login" id="login" data-url="login">
+  <div role="main" class="ui-content jqm-content">
+    <div class="home-logo"><img class="b-radiu-logo" src="images/logo.png" alt="" /></div>
+    <div class="loderimages loader_login"><img src="images/loader-page.gif">
+      <p>Loading...</p>
+    </div>
+    <p class="errorMsgShow" style="text-align:center; display:none;"></p>
+    <div class="login-form"> <a href="#">
+      <div class="facebook">
+        <p>f <span>Login With Facebook</span></p>
+      </div>
+      </a>
+      <div class="or-line">
+        <p></p>
+        <h3>Or</h3>
+      </div>
+      <form method="post" id="roleManagement" action="">
+        <div class="form-group style-chang">
+          <input type="text" placeholder="Email" class="form-control" id="usr">
+        </div>
+        <div class="form-group style-chang">
+          <input type="Password" placeholder="Password" class="form-control" id="usr">
+        </div>
+        <div class="style-chang">
+          <button onClick="homeLogin()" class="ui-btn ui-btn-submit ui-corner-all">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div data-role="page" class="jqm-demos jqm-home jqm-login" id="forgot-password" data-url="forgot-password">
+  <div role="main" class="ui-content jqm-content">
+    <div class="home-logo"><img class="b-radiu-logo" src="images/logo.png" alt=""/></div>
+    <div class="loderimages loader_forgotpass"><img src="images/loader-page.gif">
+      <p>Loading...</p>
+    </div>
+    <p class="errorMsgShow" style="text-align:center; display:none;"></p>
+    <div class="forgotpassword-form">
+      <form id="forgotpassword_form" method="post" enctype="multipart/form-data" name="forgotpassword_form">
+        <div class="form-group style-chang">
+          <div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset">
+            <input type="password" id="usr" class="form-control" placeholder="Password">
+          </div>
+        </div>
+        <div class="style-chang">
+          <button onClick="homeLogin()" class="ui-btn ui-btn-submit ui-corner-all">Forgot Password</button>
+        </div>
+      </form>
+      <div class="other-link">Don't have account? <a href="#login" data-direction="reverse" data-transition="slide">Click here</a></div>
+    </div>
+  </div>
+</div>
+<div data-role="page" class="jqm-demos jqm-home jqm-login" id="register" data-url="register">
+<div role="main" class="ui-content jqm-content">
+<div class="home-logo"><img class="b-radiu-logo" src="images/logo.png" alt="" /></div>
+<div class="register-form">
+<div class="loderimages loader_registeradd"><img src="images/loader-page.gif">
+  <p>Loading...</p>
+</div>
+<p class="errorMsgShow" style="text-align:center; display:none;"></p>
+<a href="#">
+<div class="facebook">
+  <p>f <span onClick="login()">Login With Facebook</span></p>
+</div>
+</a>
+<div class="or-line">
+  <p></p>
+  <h3>Or</h3>
+</div>
+<form method="post" id="roleManagement" action="">
+<div class="form-group style-chang">
+  <input type="text" placeholder="Full Name" class="form-control" id="usr">
+</div>
+<div class="form-group style-chang">
+  <input type="text" placeholder="Email" class="form-control" id="usr">
+</div>
+<div class="form-group style-chang">
+  <input type="Password" placeholder="Password" class="form-control" id="usr">
+</div>
+<div class="form-group style-chang">
+  <input type="text" placeholder="Phone" class="form-control" id="usr">
+</div>
+<div class="form-group style-chang">
+  <select class="chng-styles">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="opel">Opel</option>
+    <option value="audi">Audi</option>
+  </select>
+</div>
+<div class="keeps-checkbox">
+  <div class="ui-checkbox">
+    <label for="terms_conditions" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-checkbox-on">I agree <a href="#">Terms &amp; Conditions</a></label>
+    <input type="checkbox" checked="" id="terms_conditions" name="terms_conditions" data-cacheval="false">
+  </div>
+</div>
+<div class="style-chang">
+  <button class="ui-btn-submit ui-btn ui-corner-all" onClick="homeLogin()">Register</button>
+</div>
+</div>
+</div>
+</div>
+<!----------- Profile View ------------>
+<div data-role="page" class="jqm-demos jqm-page jqm-card" id="view-profile" data-url="Dashboard">
+  <div data-role="header" class="jqm-header">
+    <div class="right-icon"> <a href="javascript:void(0);" onClick="onBackKeyDown()" class="back-button"><img src="images/note.png" alt=""></a> </div>
+    <div class="left-icon"> <a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a> </div>
+    <h1 class="title">Dashboard</h1>
+  </div>
+  <!----------- dashboard------------>
+  <div class="full-bg baner-2 green-bg">
+    <div class="wrapper">
+      <div class="name">
+        <p>Mr. Ripu Dhaman</p>
+      </div>
+      <div class="City">
+        <p><b style="margin-right:5px;">City:</b> Jaipur<span><a href="#">Change</a></span></p>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="box-three">
+      <ul>
+        <li><a href="#">
+          <p class="bold-view">15</p>
+          <p class="three-cols float-none"><i>Organizers</i> </p>
+          </a></li>
+        <li><a href="#">
+          <p class="bold-view">100</p>
+          <p class="three-cols float-none"><i>Events</i></p>
+          </a></li>
+        <li><a href="#">
+          <p class="bold-view">15</p>
+          <p class="three-cols float-none"><i>City</i></p>
+          </a></li>
+      </ul>
+    </div>
+    <div class="recors size-fonts">
+      <h4>Upcoming Events</h4>
+    </div>
+  </div>
+  
+   <!----------- dashboard------------>
+  <div class="full-bg">
+    <div class="wrapper">
+      <div class="main-wrapper-cols">
+        <h3>IMAS INTERNATIONAL OPEN KARATE DO CHAMPIONSHIP- 2016</h3>
+        <div class="one-cols-event"> <img src="images/event.png"> </div>
+        <div class="right-big">
+          <div class="date-time">
+            <p class="green">IMAS SANSTHAN, JAIPUR</p>
+            <p class="dark">Fri, <b style="font-size:14px;">22 Jul</b> 2016</p>
+          </div>
+          <div class="dateand-city">
+            <div class="three-cols">
+              <p>Jaipur</p>
+              <i>Rajasthan, India</i> </div>
+          </div>
+          <div class="link-pages-iner">
+            <ul>
+              <li><a href="#">Matches</a></li>
+              <li><a href="#">Teams</a></li>
+              <li><a href="#">Winners</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="full-bg">
+    <div class="wrapper">
+      <div class="main-wrapper-cols">
+        <h3>IMAS INTERNATIONAL OPEN KARATE DO CHAMPIONSHIP- 2016</h3>
+        <div class="one-cols-event"> <img src="images/event.png"> </div>
+        <div class="right-big">
+          <div class="date-time">
+            <p class="green">IMAS SANSTHAN, JAIPUR</p>
+            <p class="dark">Fri, <b style="font-size:14px;">22 Jul</b> 2016</p>
+          </div>
+          <div class="dateand-city">
+            <div class="three-cols">
+              <p>Jaipur</p>
+              <i>Rajasthan, India</i> </div>
+          </div>
+          <div class="link-pages-iner">
+            <ul>
+              <li><a href="#">Matches</a></li>
+              <li><a href="#">Teams</a></li>
+              <li><a href="#">Winners</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <div class="full-bg">
+    <div class="wrapper">
+      <div class="main-wrapper-cols">
+        <h3>IMAS INTERNATIONAL OPEN KARATE DO CHAMPIONSHIP- 2016</h3>
+        <div class="one-cols-event"> <img src="images/event.png"> </div>
+        <div class="right-big">
+          <div class="date-time">
+            <p class="green">IMAS SANSTHAN, JAIPUR</p>
+            <p class="dark">Fri, <b style="font-size:14px;">22 Jul</b> 2016</p>
+          </div>
+          <div class="dateand-city">
+            <div class="three-cols">
+              <p>Jaipur</p>
+              <i>Rajasthan, India</i> </div>
+          </div>
+          <div class="link-pages-iner">
+            <ul>
+              <li><a href="#">Matches</a></li>
+              <li><a href="#">Teams</a></li>
+              <li><a href="#">Winners</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <div class="full-bg">
+    <div class="wrapper">
+      <div class="main-wrapper-cols">
+        <h3>IMAS INTERNATIONAL OPEN KARATE DO CHAMPIONSHIP- 2016</h3>
+        <div class="one-cols-event"> <img src="images/event.png"> </div>
+        <div class="right-big">
+          <div class="date-time">
+            <p class="green">IMAS SANSTHAN, JAIPUR</p>
+            <p class="dark">Fri, <b style="font-size:14px;">22 Jul</b> 2016</p>
+          </div>
+          <div class="dateand-city">
+            <div class="three-cols">
+              <p>Jaipur</p>
+              <i>Rajasthan, India</i> </div>
+          </div>
+          <div class="link-pages-iner">
+            <ul>
+              <li><a href="#">Matches</a></li>
+              <li><a href="#">Teams</a></li>
+              <li><a href="#">Winners</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+   <!----------- dashboard------------>
+  
+  
+  <div class="padding-space" style="padding-top: 23%;">
+    <div class="loderimages loader_user_view"><img src="images/loader-page.gif">
+      <p>Loading...</p>
+    </div>
+    <p class="errorMsgShow" style="text-align:center; display:none;"></p>
+    <div class="ViewProfileHtml"></div>
+  </div>
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer" style="display:none;">
+    <div class="rewards-line"><a href="javascript:void(0);" onClick="window.open('https://www.smartcardglobal.com/register','_system');" >Get a SmartCard</a></div>
+  </div>
+  <div class="left-align">
+    <div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
+      <ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
+        <div class="rounded-image">
+          <p><img src="images/rounded.png"><span>Name</span></p>
+        </div>
+        <li><a href="javascript:void(0);" class="one active">Dashboard</a></li>
+        <li><a href="javascript:void(0);"  class="two">My Profile</a></li>
+        <li><a href="javascript:void(0);"  class="three">Change Password</a></li>
+        <li><a href="javascript:void(0);" class="four">Organizers</a></li>
+        <li><a href="javascript:void(0);"  class="five">Happening Events</a></li>
+        <li><a href="javascript:void(0);"  class="six">Popular Venues</a></li>
+        <li><a href="javascript:void(0);"  class="Saven">Review & Ratings</a></li>
+        <li><a href="javascript:void(0);"  class="ete">Followers</a></li>
+        <li><a href="javascript:void(0);"  class="nine">My Team</a></li>
+        <li><a href="javascript:void(0);"  class="ten">Chat Room</a></li>
+        <li><a href="javascript:void(0);"  class="eleone">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- /page -->
+<!----------- Card List ------------>
+<div data-role="page" class="jqm-demos jqm-page jqm-card" id="view-profile" data-url="Organizers">
+<div data-role="header" class="jqm-header">
+  <div class="right-icon width-right"> <a href="javascript:void(0);" onClick="onBackKeyDown()" class="back-button"><img src="images/filter.png" alt=""></a> </div>
+  <div class="right-icon width-right"> <a href="javascript:void(0);" onClick="onBackKeyDown()" class="back-button"><img src="images/hart.png" alt=""></a> </div>
+  <div class="left-icon"> <a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a> </div>
+  <h1 class="title">Organizers</h1>
+</div>
+<div class="wrapper">
+<div class="tex-box">
+<form>
+  <p>
+    <input type="tex" placeholder="Search">
+    <span><a href="#"><img src="images/search.png"></a></span> </p>
+</form>
+<div class="recors">
+  <h4>Find your Organizer out of 250 records </h4>
+</div>
+</div>
+</div>
+<div class="full-bg">
+  <div class="wrapper">
+    <div class="main-wrapper-cols">
+      <div class="one-cols"> <img src="images/org.png"> </div>
+      <div class="two-cols">
+        <h4 class="fors-hart" style="padding-right:4px;">IMAS Sansathan</h4>
+        <a href="#">
+        <h4 class="after-bg"></h4>
+        </a>
+        <p>120 followers, 20 feedbacks</p>
+        <div class="rating"> <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>10</span> </div>
+        <h5><a href="#">Portfolio </a></h5>
+      </div>
+      <div class="three-cols">
+        <p>Jaipur</p>
+        <i>Rajasthan, India</i> </div>
+    </div>
+  </div>
+</div>
+<div class="padding-space" style="padding-top: 23%;">
+  <div class="loderimages loader_user_view"><img src="images/loader-page.gif">
+    <p>Loading...</p>
+  </div>
+  <p class="errorMsgShow" style="text-align:center; display:none;"></p>
+  <div class="ViewProfileHtml"></div>
+</div>
+<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer" style="display:none;">
+  <div class="rewards-line"><a href="javascript:void(0);" onClick="window.open('https://www.smartcardglobal.com/register','_system');" >Get a SmartCard</a></div>
+</div>
+<div class="left-align">
+  <div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
+    <ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
+      <div class="rounded-image">
+        <p><img src="images/rounded.png"><span>Name</span></p>
+      </div>
+      <li><a href="javascript:void(0);" class="one">Dashboard</a></li>
+      <li><a href="javascript:void(0);"  class="two">My Profile</a></li>
+      <li><a href="javascript:void(0);"  class="three">Change Password</a></li>
+      <li><a href="javascript:void(0);" class="four active">Organizers</a></li>
+      <li><a href="javascript:void(0);"  class="five">Happening Events</a></li>
+      <li><a href="javascript:void(0);"  class="six">Popular Venues</a></li>
+      <li><a href="javascript:void(0);"  class="Saven">Review & Ratings</a></li>
+      <li><a href="javascript:void(0);"  class="ete">Followers</a></li>
+      <li><a href="javascript:void(0);"  class="nine">My Team</a></li>
+      <li><a href="javascript:void(0);"  class="ten">Chat Room</a></li>
+      <li><a href="javascript:void(0);"  class="eleone">Logout</a></li>
+    </ul>
+  </div>
+</div>
+</div>
+<!----------- Profile View ------------>
+<div data-role="page" class="jqm-demos jqm-page jqm-card" id="view-profile" data-url="Change Password">
+  <div data-role="header" class="jqm-header">
+    <div class="right-icon"> <a href="javascript:void(0);" onClick="onBackKeyDown()" class="back-button"><img src="images/note.png" alt=""></a> </div>
+    <div class="left-icon"> <a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a> </div>
+    <h1 class="title">Change Password</h1>
+  </div>
+  <div class="wrapper">
+    <div class="tex-box-two">
+      <div class="tex-lorem">
+        <div class="recors">
+          <h4 style="font-size:14px;">Change your password</h4>
+        </div>
+        <p>You can change your password here. Your new password will be send on registered email address. Please check  spam folder if its not find in indox.</p>
+      </div>
+      <form method="post" id="roleManagement" action="">
+        <div class="form-group style-chang">
+          <input type="password" placeholder="New Password" class="form-control" id="usr">
+        </div>
+        <div class="form-group style-chang">
+          <input type="Password" placeholder="Password Confirmation" class="form-control" id="usr">
+        </div>
+        <div class="style-chang">
+          <button onClick="homeLogin()" class="ui-btn ui-btn-submit ui-corner-all">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="padding-space" style="padding-top: 23%;">
+    <div class="loderimages loader_user_view"><img src="images/loader-page.gif">
+      <p>Loading...</p>
+    </div>
+    <p class="errorMsgShow" style="text-align:center; display:none;"></p>
+    <div class="ViewProfileHtml"></div>
+  </div>
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer" style="display:none;">
+    <div class="rewards-line"><a href="javascript:void(0);" onClick="window.open('https://www.smartcardglobal.com/register','_system');" >Get a SmartCard</a></div>
+  </div>
+  <div class="left-align">
+    <div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
+      <ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
+        <div class="rounded-image">
+          <p><img src="images/rounded.png"><span>Name</span></p>
+        </div>
+        <li><a href="javascript:void(0);" class="one">Dashboard</a></li>
+        <li><a href="javascript:void(0);"  class="two">My Profile</a></li>
+        <li><a href="javascript:void(0);"  class="three">Change Password</a></li>
+        <li><a href="javascript:void(0);" class="four">Organizers</a></li>
+        <li><a href="javascript:void(0);"  class="five">Happening Events</a></li>
+        <li><a href="javascript:void(0);"  class="six">Popular Venues</a></li>
+        <li><a href="javascript:void(0);"  class="Saven">Review & Ratings</a></li>
+        <li><a href="javascript:void(0);"  class="ete">Followers</a></li>
+        <li><a href="javascript:void(0);"  class="nine">My Team</a></li>
+        <li><a href="javascript:void(0);"  class="ten">Chat Room</a></li>
+        <li><a href="javascript:void(0);"  class="eleone">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- /page -->
+<!----------- Edit Profile ------------>
+<div data-role="page" class="jqm-demos jqm-page jqm-card" id="view-profile" data-url="Organizers Detail">
+  <div data-role="header" class="jqm-header">
+    <div class="left-icon"> <a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a> </div>
+    <h1 class="title">Organizers Detail</h1>
+  </div>
+  <div class="wrapper">
+    <div class="banner"> <img src="images/baner.png">
+      <div class="rounded-on-baner"><img src="images/roundeonbaner.png"></div>
+    </div>
+    <div class="nav-horizantail">
+      <ul>
+        <li><a  href="#">Reviews </a></li>
+        <li><a  href="#">Portfolio </a></li>
+        <li><a  href="#">Follow us</a></li>
+        <li><a  href="#">Chat Now</a></li>
+      </ul>
+    </div>
+    <div class="two-cols-hedding" style="margin-top:10px;">
+      <div class="two-cols" style="width:100%;">
+        <h4 style="padding-right:4px; font-size:13px; font-weight:bold; width:80%;" class="fors-hart">IMAS Sansathan</h4>
+        <a href="#" class="ui-link">
+        <h4 class="after-bg"></h4>
+        </a> </div>
+    </div>
+    <div class="information">
+      <ul>
+        <li><b>Name </b><span>XYZ</span></li>
+        <li><b>Email </b><span>@gmail.com</span></li>
+        <li><b>Phone</b><span>+91</span></li>
+        <li><b>Created by</b><span>Hemant Jain</span></li>
+        <li><b>Follower</b><span>15</span></li>
+      </ul>
+    </div>
+  </div>
+  <map>
+    <div class="map-image"> <img src="images/map.png">
+      <div class="address">
+        <p><b>Address-</b>27, malviya industrial area, Malviya Nagar Industrial Area,
+          Malviya Nagar · 0</p>
+      </div>
+    </div>
+  </map>
+  <div class="padding-space" style="padding-top: 23%;">
+    <div class="loderimages loader_user_view"><img src="images/loader-page.gif">
+      <p>Loading...</p>
+    </div>
+    <p class="errorMsgShow" style="text-align:center; display:none;"></p>
+    <div class="ViewProfileHtml"></div>
+  </div>
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer" style="display:none;">
+    <div class="rewards-line"><a href="javascript:void(0);" onClick="window.open('https://www.smartcardglobal.com/register','_system');" >Get a SmartCard</a></div>
+  </div>
+  <div class="left-align">
+    <div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
+      <ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
+        <div class="rounded-image">
+          <p><img src="images/rounded.png"><span>Name</span></p>
+        </div>
+        <li><a href="javascript:void(0);" class="one">Dashboard</a></li>
+        <li><a href="javascript:void(0);"  class="two">My Profile</a></li>
+        <li><a href="javascript:void(0);"  class="three">Change Password</a></li>
+        <li><a href="javascript:void(0);" class="four">Organizers</a></li>
+        <li><a href="javascript:void(0);"  class="five">Happening Events</a></li>
+        <li><a href="javascript:void(0);"  class="six">Popular Venues</a></li>
+        <li><a href="javascript:void(0);"  class="Saven">Review & Ratings</a></li>
+        <li><a href="javascript:void(0);"  class="ete">Followers</a></li>
+        <li><a href="javascript:void(0);"  class="nine">My Team</a></li>
+        <li><a href="javascript:void(0);"  class="ten">Chat Room</a></li>
+        <li><a href="javascript:void(0);"  class="eleone">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!----------- Basic Card List ------------>
+<div data-role="page" class="jqm-demos jqm-page jqm-card" id="view-profile" data-url="Events">
+  <div data-role="header" class="jqm-header">
+    <div class="right-icon width-right"> <a href="javascript:void(0);" onClick="onBackKeyDown()" class="back-button"><img src="images/filter.png" alt=""></a> </div>
+    <div class="left-icon"> <a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a> </div>
+    <h1 class="title">Events</h1>
+  </div>
+  <div class="wrapper">
+    <div class="tex-box">
+      <form>
+        <p>
+          <input type="tex" placeholder="Search">
+          <span><a href="#"><img src="images/search.png"></a></span> </p>
+      </form>
+      <div class="recors">
+        <h4>Find your Organizer out of 250 records </h4>
+      </div>
+    </div>
+  </div>
+  <div class="full-bg">
+    <div class="wrapper">
+      <div class="main-wrapper-cols">
+        <div class="one-cols-event"> <img src="images/event.png"> </div>
+        <div class="right-big">
+          <h3>IMAS INTERNATIONAL OPEN KARATE DO CHAMPIONSHIP- 2016</h3>
+          <div class="date-time">
+            <p class="green">IMAS SANSTHAN, JAIPUR</p>
+            <p class="dark">Fri, <b style="font-size:14px;">22 Jul</b> 2016 at 10:30 AM</p>
+          </div>
+          <div class="dateand-city">
+            <div class="three-cols">
+              <p>Jaipur</p>
+              <i>Rajasthan, India</i> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="padding-space" style="padding-top: 23%;">
+    <div class="loderimages loader_user_view"><img src="images/loader-page.gif">
+      <p>Loading...</p>
+    </div>
+    <p class="errorMsgShow" style="text-align:center; display:none;"></p>
+    <div class="ViewProfileHtml"></div>
+  </div>
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer" style="display:none;">
+    <div class="rewards-line"><a href="javascript:void(0);" onClick="window.open('https://www.smartcardglobal.com/register','_system');" >Get a SmartCard</a></div>
+  </div>
+  <div class="left-align">
+    <div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
+      <ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
+        <div class="rounded-image">
+          <p><img src="images/rounded.png"><span>Name</span></p>
+        </div>
+        <li><a href="javascript:void(0);" class="one">Dashboard</a></li>
+        <li><a href="javascript:void(0);"  class="two">My Profile</a></li>
+        <li><a href="javascript:void(0);"  class="three">Change Password</a></li>
+        <li><a href="javascript:void(0);" class="four active">Organizers</a></li>
+        <li><a href="javascript:void(0);"  class="five">Happening Events</a></li>
+        <li><a href="javascript:void(0);"  class="six">Popular Venues</a></li>
+        <li><a href="javascript:void(0);"  class="Saven">Review & Ratings</a></li>
+        <li><a href="javascript:void(0);"  class="ete">Followers</a></li>
+        <li><a href="javascript:void(0);"  class="nine">My Team</a></li>
+        <li><a href="javascript:void(0);"  class="ten">Chat Room</a></li>
+        <li><a href="javascript:void(0);"  class="eleone">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- /page -->
+<!----------- Edit Card ------------>
+<div data-role="page" class="jqm-demos jqm-page jqm-card" id="view-profile" data-url="Events detail">
+  <div data-role="header" class="jqm-header">
+    <div class="left-icon"> <a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a> </div>
+    <h1 class="title">Event Page</h1>
+  </div>
+  <div class="wrapper">
+    <div class="nav-horizantail baner-2">
+      <ul>
+        <li><a  href="#" style="padding:7px 16px;">Who Organize</a></li>
+        <li><a  href="#" style="padding:7px 16px;">Save This</a></li>
+        <li><a  href="#" style="padding:7px 16px;">Rate This</a></li>
+      </ul>
+    </div>
+    <div class="two-cols-hedding" style="margin:10px 0 0 0;">
+      <h2 style="font-size:16px; font-weight:normal;">IMAS INTERNATIONAL OPEN KARATE DO 
+        CHAMPIONSHIP- 2016</h2>
+    </div>
+    <div class="information">
+      <ul>
+        <li><b>Created by </b><span>Hamant Jain</span></li>
+        <li><b>Email </b><span>12345@gmail.com</span></li>
+        <li><b>Phone</b><span>+9112346655</span></li>
+        <li><b>Venue</b><span>SMS COMPLEX, INDOOR STADIUM</span></li>
+        <li><b>Date & Time</b><span>Fri, 22 Jul 2016 at 10:30 AM</span></li>
+        <li><b>Entery Fees</b><span>500 Rs /- person</span></li>
+        <li><b>You Tube</b><span><a href="#">Link</a></span></li>
+      </ul>
+    </div>
+    <div class="socil-icons">
+      <ul>
+        <li><a href="#"></a><img src="images/f.png"></li>
+        <li><a href="#"></a><img src="images/u.png"></li>
+        <li><a href="#"></a><img src="images/in.png"></li>
+        <li><a href="#"></a><img src="images/t.png"></li>
+        <li><a href="#"></a><img src="images/p.png"></li>
+      </ul>
+    </div>
+    <div class="discripation">
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
+    </div>
+    <div class="popaps">
+      <h3>Image Gallery (6)</h3>
+      <a href="#popupBasic" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline padding-set" data-transition="pop"><img src="images/zoom-out.png" width="50px"></a>
+      <div data-role="popup" id="popupBasic">
+        <p><img src="images/zoom-in.png" width="255px"></p>
+      </div>
+      <a href="#popupBasic" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline padding-set" data-transition="pop"><img src="images/zoom-out.png" width="50px"></a>
+      <div data-role="popup" id="popupBasic">
+        <p><img src="images/zoom-in.png" width="255px"></p>
+      </div>
+      <a href="#popupBasic" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline padding-set" data-transition="pop"><img src="images/zoom-out.png" width="50px"></a>
+      <div data-role="popup" id="popupBasic">
+        <p><img src="images/zoom-in.png" width="255px"></p>
+      </div>
+      <a href="#popupBasic" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline padding-set" data-transition="pop"><img src="images/zoom-out.png" width="50px"></a>
+      <div data-role="popup" id="popupBasic">
+        <p><img src="images/zoom-in.png" width="255px"></p>
+      </div>
+      <a href="#popupBasic" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline padding-set" data-transition="pop"><img src="images/zoom-out.png" width="50px"></a>
+      <div data-role="popup" id="popupBasic">
+        <p><img src="images/zoom-in.png" width="255px"></p>
+      </div>
+      <a href="#popupBasic" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline padding-set" data-transition="pop"><img src="images/zoom-out.png" width="50px"></a>
+      <div data-role="popup" id="popupBasic">
+        <p><img src="images/zoom-in.png" width="255px"></p>
+      </div>
+    </div>
+  </div>
+  <map>
+    <div class="map-image"> <img src="images/map.png">
+      <div class="address">
+        <p><b>Address-</b>27, malviya industrial area, Malviya Nagar Industrial Area,
+          Malviya Nagar · 0</p>
+      </div>
+    </div>
+  </map>
+  <div class="padding-space" style="padding-top: 23%;">
+    <div class="loderimages loader_user_view"><img src="images/loader-page.gif">
+      <p>Loading...</p>
+    </div>
+    <p class="errorMsgShow" style="text-align:center; display:none;"></p>
+    <div class="ViewProfileHtml"></div>
+  </div>
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer" style="display:none;">
+    <div class="rewards-line"><a href="javascript:void(0);" onClick="window.open('https://www.smartcardglobal.com/register','_system');" >Get a SmartCard</a></div>
+  </div>
+  <div class="left-align">
+    <div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
+      <ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
+        <div class="rounded-image">
+          <p><img src="images/rounded.png"><span>Name</span></p>
+        </div>
+        <li><a href="javascript:void(0);" class="one">Dashboard</a></li>
+        <li><a href="javascript:void(0);"  class="two">My Profile</a></li>
+        <li><a href="javascript:void(0);"  class="three">Change Password</a></li>
+        <li><a href="javascript:void(0);" class="four">Organizers</a></li>
+        <li><a href="javascript:void(0);"  class="five">Happening Events</a></li>
+        <li><a href="javascript:void(0);"  class="six">Popular Venues</a></li>
+        <li><a href="javascript:void(0);"  class="Saven">Review & Ratings</a></li>
+        <li><a href="javascript:void(0);"  class="ete">Followers</a></li>
+        <li><a href="javascript:void(0);"  class="nine">My Team</a></li>
+        <li><a href="javascript:void(0);"  class="ten">Chat Room</a></li>
+        <li><a href="javascript:void(0);"  class="eleone">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!----------- Edit Card Link ------------>
+<div data-role="page" class="jqm-demos jqm-page jqm-card" id="view-profile" data-url="Events Review">
+  <div data-role="header" class="jqm-header">
+    <div class="left-icon"> <a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a> </div>
+    <h1 class="title">Event Review</h1>
+  </div>
+  <div class="wrapper">
+    <div class="nav-horizantail baner-2">
+      <ul>
+        <li><a  href="#" style="padding:7px 13px;">Who Organize</a></li>
+        <li><a  href="#" style="padding:7px 13px;">Save This</a></li>
+        <li><a  href="#" class="active" style="padding:7px 13px;">Rate This</a></li>
+      </ul>
+    </div>
+    <div class="two-cols-hedding" style="margin:10px 0 0 0;">
+      <h2 style="font-size:16px; font-weight:normal;">IMAS INTERNATIONAL OPEN KARATE DO 
+        CHAMPIONSHIP- 2016</h2>
+    </div>
+    <div class="recors">
+      <h4>Total Reviews(40) </h4>
+    </div>
+  </div>
+  <div class="full-bg">
+    <div class="wrapper">
+      <div class="discripation-haddings">
+        <h3>Dinesh chand</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
+      </div>
+      <div class="rating" style="float:left; margin-right:20px;"> <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>10</span> </div>
+      <div class="rating" style="color:#1d96bb; font-size:14px;">Posted On 23 jun 2016</div>
+    </div>
+  </div>
+  <div class="full-bg">
+    <div class="wrapper">
+      <div class="discripation-haddings">
+        <h3>Dinesh chand</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
+      </div>
+      <div class="rating" style="float:left; margin-right:20px;"> <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>10</span> </div>
+      <div class="rating" style="color:#1d96bb; font-size:14px;">Posted On 23 jun 2016</div>
+    </div>
+  </div>
+  <div class="full-bg">
+    <div class="wrapper">
+      <div class="discripation-haddings">
+        <h3>Dinesh chand</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
+      </div>
+      <div class="rating" style="float:left; margin-right:20px;"> <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>10</span> </div>
+      <div class="rating" style="color:#1d96bb; font-size:14px;">Posted On 23 jun 2016</div>
+    </div>
+  </div>
+  <div class="full-bg">
+    <div class="wrapper">
+      <div class="discripation-haddings">
+        <h3>Dinesh chand</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
+      </div>
+      <div class="rating" style="float:left; margin-right:20px;"> <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>10</span> </div>
+      <div class="rating" style="color:#1d96bb; font-size:14px;">Posted On 23 jun 2016</div>
+    </div>
+  </div>
+  <div class="full-bg">
+    <div class="wrapper">
+      <div class="discripation-haddings">
+        <h3>Dinesh chand</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
+      </div>
+      <div class="rating" style="float:left; margin-right:20px;"> <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>10</span> </div>
+      <div class="rating" style="color:#1d96bb; font-size:14px;">Posted On 23 jun 2016</div>
+    </div>
+  </div>
+  <div class="padding-space" style="padding-top: 23%;">
+    <div class="loderimages loader_user_view"><img src="images/loader-page.gif">
+      <p>Loading...</p>
+    </div>
+    <p class="errorMsgShow" style="text-align:center; display:none;"></p>
+    <div class="ViewProfileHtml"></div>
+  </div>
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer" style="display:none;">
+    <div class="rewards-line"><a href="javascript:void(0);" onClick="window.open('https://www.smartcardglobal.com/register','_system');" >Get a SmartCard</a></div>
+  </div>
+  <div class="left-align">
+    <div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
+      <ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
+        <div class="rounded-image">
+          <p><img src="images/rounded.png"><span>Name</span></p>
+        </div>
+        <li><a href="javascript:void(0);" class="one">Dashboard</a></li>
+        <li><a href="javascript:void(0);"  class="two">My Profile</a></li>
+        <li><a href="javascript:void(0);"  class="three">Change Password</a></li>
+        <li><a href="javascript:void(0);" class="four">Organizers</a></li>
+        <li><a href="javascript:void(0);"  class="five">Happening Events</a></li>
+        <li><a href="javascript:void(0);"  class="six">Popular Venues</a></li>
+        <li><a href="javascript:void(0);"  class="Saven">Review & Ratings</a></li>
+        <li><a href="javascript:void(0);"  class="ete">Followers</a></li>
+        <li><a href="javascript:void(0);"  class="nine">My Team</a></li>
+        <li><a href="javascript:void(0);"  class="ten">Chat Room</a></li>
+        <li><a href="javascript:void(0);"  class="eleone">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!----------- Edit Card Scroller ------------>
+<div data-role="page" class="jqm-demos jqm-page jqm-card" id="view-profile" data-url="Feedback">
+  <div data-role="header" class="jqm-header">
+    <div class="right-icon"> <a href="javascript:void(0);" onClick="onBackKeyDown()" class="back-button"><img src="images/note.png" alt=""></a> </div>
+    <div class="left-icon"> <a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a> </div>
+    <h1 class="title">Feedback</h1>
+  </div>
+  <div class="hedding">
+    <p style="text-align:left;">Thank you!! We receive your feedback. Our team will
+      review and contact you back if needed.</p>
+  </div>
+  <div class="wrapper">
+    <div class="proble-share-req">
+      <p>Dear Mr. Sharma,<br/>
+        You can share your problems & suggestion from this page. Our team will review and try to resolve as soon as possible. </p>
+    </div>
+    <form method="post" id="roleManagement" action="">
+      <div class="form-group style-chang">
+        <input type="text" placeholder="Subject" class="form-control" id="usr">
+      </div>
+      <div class="form-group style-chang">
+        <textarea name="" placeholder="Message" cols="" rows="" class="height-text-area"></textarea>
+      </div>
+      <div class="style-chang">
+        <button onClick="homeLogin()" class="ui-btn ui-btn-submit ui-corner-all">Submit</button>
+      </div>
+    </form>
+  </div>
+  <div class="padding-space" style="padding-top: 23%;">
+    <div class="loderimages loader_user_view"><img src="images/loader-page.gif">
+      <p>Loading...</p>
+    </div>
+    <p class="errorMsgShow" style="text-align:center; display:none;"></p>
+    <div class="ViewProfileHtml"></div>
+  </div>
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer" style="display:none;">
+    <div class="rewards-line"><a href="javascript:void(0);" onClick="window.open('https://www.smartcardglobal.com/register','_system');" >Get a SmartCard</a></div>
+  </div>
+  <div class="left-align">
+    <div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
+      <ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
+        <div class="rounded-image">
+          <p><img src="images/rounded.png"><span>Name</span></p>
+        </div>
+        <li><a href="javascript:void(0);" class="one active">Dashboard</a></li>
+        <li><a href="javascript:void(0);"  class="two">My Profile</a></li>
+        <li><a href="javascript:void(0);"  class="three">Change Password</a></li>
+        <li><a href="javascript:void(0);" class="four">Organizers</a></li>
+        <li><a href="javascript:void(0);"  class="five">Happening Events</a></li>
+        <li><a href="javascript:void(0);"  class="six">Popular Venues</a></li>
+        <li><a href="javascript:void(0);"  class="Saven">Review & Ratings</a></li>
+        <li><a href="javascript:void(0);"  class="ete">Followers</a></li>
+        <li><a href="javascript:void(0);"  class="nine">My Team</a></li>
+        <li><a href="javascript:void(0);"  class="ten">Chat Room</a></li>
+        <li><a href="javascript:void(0);"  class="eleone">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!----------- Card templates List ------------>
+<div data-role="page" class="jqm-demos jqm-page jqm-card" id="view-profile" data-url="Followers">
+  <div data-role="header" class="jqm-header">
+    <div class="left-icon"> <a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a> </div>
+    <h1 class="title">Followers</h1>
+  </div>
+  <div class="wrapper">
+    <div class="tex-box">
+      <form>
+        <p>
+          <input type="tex" placeholder="Search">
+          <span><a href="#"><img src="images/search.png"></a></span> </p>
+      </form>
+    </div>
+    <div class="row-one">
+      <div class="left-saddow">
+        <div class="image-fol"> <img src="images/sender.png"> </div>
+        <div class="right">
+          <h3>Dinesh</h3>
+          <p>Male</p>
+          <p>Jaipur (Rajasthan)</p>
+        </div>
+        <div class="green-follow"> <a href="#">Add Members</a> </div>
+      </div>
+      <div class="left-saddow">
+        <div class="image-fol"> <img src="images/sender.png"> </div>
+        <div class="right">
+          <h3>Dinesh</h3>
+          <p>Male</p>
+          <p>Jaipur (Rajasthan)</p>
+        </div>
+        <div class="green-follow"> <a href="#">Add Members</a> </div>
+      </div>
+      <div class="left-saddow">
+        <div class="image-fol"> <img src="images/sender.png"> </div>
+        <div class="right">
+          <h3>Dinesh</h3>
+          <p>Male</p>
+          <p>Jaipur (Rajasthan)</p>
+        </div>
+        <div class="green-follow"> <a href="#">Add Members</a> </div>
+      </div>
+      <div class="left-saddow">
+        <div class="image-fol"> <img src="images/sender.png"> </div>
+        <div class="right">
+          <h3>Dinesh</h3>
+          <p>Male</p>
+          <p>Jaipur (Rajasthan)</p>
+        </div>
+        <div class="green-follow"> <a href="#">Add Members</a> </div>
+      </div>
+      <div class="left-saddow">
+        <div class="image-fol"> <img src="images/sender.png"> </div>
+        <div class="right">
+          <h3>Dinesh</h3>
+          <p>Male</p>
+          <p>Jaipur (Rajasthan)</p>
+        </div>
+        <div class="green-follow"> <a href="#">Add Members</a> </div>
+      </div>
+      <div class="left-saddow">
+        <div class="image-fol"> <img src="images/sender.png"> </div>
+        <div class="right">
+          <h3>Dinesh</h3>
+          <p>Male</p>
+          <p>Jaipur (Rajasthan)</p>
+        </div>
+        <div class="green-follow"> <a href="#">Add Members</a> </div>
+      </div>
+      <div class="left-saddow">
+        <div class="image-fol"> <img src="images/sender.png"> </div>
+        <div class="right">
+          <h3>Dinesh</h3>
+          <p>Male</p>
+          <p>Jaipur (Rajasthan)</p>
+        </div>
+        <div class="green-follow"> <a href="#">Add Members</a> </div>
+      </div>
+      <div class="left-saddow">
+        <div class="image-fol"> <img src="images/sender.png"> </div>
+        <div class="right">
+          <h3>Dinesh</h3>
+          <p>Male</p>
+          <p>Jaipur (Rajasthan)</p>
+        </div>
+        <div class="green-follow"> <a href="#">Add Members</a> </div>
+      </div>
+      <div class="left-saddow">
+        <div class="image-fol"> <img src="images/sender.png"> </div>
+        <div class="right">
+          <h3>Dinesh</h3>
+          <p>Male</p>
+          <p>Jaipur (Rajasthan)</p>
+        </div>
+        <div class="green-follow"> <a href="#">Add Members</a> </div>
+      </div>
+      <div class="left-saddow">
+        <div class="image-fol"> <img src="images/sender.png"> </div>
+        <div class="right">
+          <h3>Dinesh</h3>
+          <p>Male</p>
+          <p>Jaipur (Rajasthan)</p>
+        </div>
+        <div class="green-follow"> <a href="#">Add Members</a> </div>
+      </div>
+      <div class="left-saddow">
+        <div class="image-fol"> <img src="images/sender.png"> </div>
+        <div class="right">
+          <h3>Dinesh</h3>
+          <p>Male</p>
+          <p>Jaipur (Rajasthan)</p>
+        </div>
+        <div class="green-follow"> <a href="#">Add Members</a> </div>
+      </div>
+    </div>
+  </div>
+  <div class="padding-space" style="padding-top: 23%;">
+    <div class="loderimages loader_user_view"><img src="images/loader-page.gif">
+      <p>Loading...</p>
+    </div>
+    <p class="errorMsgShow" style="text-align:center; display:none;"></p>
+    <div class="ViewProfileHtml"></div>
+  </div>
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer" style="display:none;">
+    <div class="rewards-line"><a href="javascript:void(0);" onClick="window.open('https://www.smartcardglobal.com/register','_system');" >Get a SmartCard</a></div>
+  </div>
+  <div class="left-align">
+    <div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
+      <ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
+        <div class="rounded-image">
+          <p><img src="images/rounded.png"><span>Name</span></p>
+        </div>
+        <li><a href="javascript:void(0);" class="one">Dashboard</a></li>
+        <li><a href="javascript:void(0);"  class="two">My Profile</a></li>
+        <li><a href="javascript:void(0);"  class="three">Change Password</a></li>
+        <li><a href="javascript:void(0);" class="four active">Organizers</a></li>
+        <li><a href="javascript:void(0);"  class="five">Happening Events</a></li>
+        <li><a href="javascript:void(0);"  class="six">Popular Venues</a></li>
+        <li><a href="javascript:void(0);"  class="Saven">Review & Ratings</a></li>
+        <li><a href="javascript:void(0);"  class="ete">Followers</a></li>
+        <li><a href="javascript:void(0);"  class="nine">My Team</a></li>
+        <li><a href="javascript:void(0);"  class="ten">Chat Room</a></li>
+        <li><a href="javascript:void(0);"  class="eleone">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- /page -->
+<!----------- Card Detail ------------>
+<div data-role="page" class="jqm-demos jqm-page jqm-card" id="view-profile" data-url="Chat">
+  <div data-role="header" class="jqm-header">
+    <div class="right-icon"> <a href="javascript:void(0);" onClick="onBackKeyDown()" class="back-button" id="relative"><img src="images/Email.png" alt=""><span>22</span></a> </div>
+    <div class="left-icon"> <a href="javascript:void(0);" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/back-icon.png" alt="" width="10px;"></a> </div>
+    <h1 class="title">Chat</h1>
+  </div>
+  <div class="hedding">
+    <p>Mr. Black</p>
+  </div>
+  <div class="wrapper">
+    <div class="box">
+      <div class="image-sender"><img src="images/sender.png"></div>
+      <div class="right-bg-chat">
+        <div class="recors" id="margion-none-chat">
+          <h4>Dinesh</h4>
+          <h5>Today, 10:10PM</h5>
+        </div>
+        <p>How are you Hiii How are you Hiii How are you Hiii How are you</p>
+      </div>
+    </div>
+    <div class="box">
+      <div class="image-sender"><img src="images/sender.png"></div>
+      <div class="right-bg-chat">
+        <div class="recors" id="margion-none-chat">
+          <h4>Dinesh</h4>
+          <h5>Today, 10:10PM</h5>
+        </div>
+        <p>How are you Hiii How are you Hiii How are you Hiii How are you</p>
+      </div>
+    </div>
+    <div class="box">
+      <div class="image-sender"><img src="images/sender.png"></div>
+      <div class="right-bg-chat">
+        <div class="recors" id="margion-none-chat">
+          <h4>Dinesh</h4>
+          <h5>Today, 10:10PM</h5>
+        </div>
+        <p>How are you Hiii How are you Hiii How are you Hiii How are you</p>
+      </div>
+    </div>
+    <div class="tex-box-bootum">
+      <form>
+        <p>
+          <input type="tex" placeholder="Search">
+          <span><a href="#" class="ui-link"><img src="images/search-arrow.png"></a></span> </p>
+      </form>
+    </div>
+  </div>
+  <div class="padding-space" style="padding-top: 23%;">
+    <div class="loderimages loader_user_view"><img src="images/loader-page.gif">
+      <p>Loading...</p>
+    </div>
+    <p class="errorMsgShow" style="text-align:center; display:none;"></p>
+    <div class="ViewProfileHtml"></div>
+  </div>
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer" style="display:none;">
+    <div class="rewards-line"><a href="javascript:void(0);" onClick="window.open('https://www.smartcardglobal.com/register','_system');" >Get a SmartCard</a></div>
+  </div>
+  <div class="left-align">
+    <div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
+      <ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
+        <div class="rounded-image">
+          <p><img src="images/rounded.png"><span>Name</span></p>
+        </div>
+        <li><a href="javascript:void(0);" class="one active">Dashboard</a></li>
+        <li><a href="javascript:void(0);"  class="two">My Profile</a></li>
+        <li><a href="javascript:void(0);"  class="three">Change Password</a></li>
+        <li><a href="javascript:void(0);" class="four">Organizers</a></li>
+        <li><a href="javascript:void(0);"  class="five">Happening Events</a></li>
+        <li><a href="javascript:void(0);"  class="six">Popular Venues</a></li>
+        <li><a href="javascript:void(0);"  class="Saven">Review & Ratings</a></li>
+        <li><a href="javascript:void(0);"  class="ete">Followers</a></li>
+        <li><a href="javascript:void(0);"  class="nine">My Team</a></li>
+        <li><a href="javascript:void(0);"  class="ten">Chat Room</a></li>
+        <li><a href="javascript:void(0);"  class="eleone">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- /page -->
+<!----------- Edit Profile ------------>
+<div data-role="page" class="jqm-demos jqm-page jqm-card" id="view-profile" data-url="Match list">
+  <div data-role="header" class="jqm-header">
+    <div class="left-icon"> <a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a> </div>
+    <h1 class="title">Match list</h1>
+  </div>
+  <div class="wrapper">
+    <div class="nav-horizantail baner-2">
+      <ul>
+        <li><a  href="#" style="padding:7px 21px;">Upcoming</a></li>
+        <li><a  href="#" style="padding:7px 21px;">Complete</a></li>
+        <li><a  href="#" style="padding:7px 21px;">Cancle</a></li>
+      </ul>
+    </div>
+    <div class="two-cols-hedding" style="margin:10px 0 0 0;">
+      <h2 style="font-size:16px; font-weight:normal;">IMAS INTERNATIONAL OPEN </h2>
+    </div>
+    <div class="recors">
+      <h4>Total Matchs(50)</h4>
+    </div>
+  </div>
+  <div class="full-bg">
+    <div class="wrapper">
+      <div class="main-list-wra">
+        <div class="lefer-clander">
+          <div class="rounded-calender">
+            <p class="bg-black">September</p>
+            <p style=" color:#0a905d; font-size:10px; margin-top:6px;"><b style="color:#333;">20</b><br/>
+              sunday</p>
+          </div>
+          <span>10:00pm</span> </div>
+        <div class="tex-boxer">
+          <div class="three-cols" style="float:none;">
+            <p>RAJASTHAN</p>
+            <i>Dinesh chand</i> </div>
+        </div>
+        <div class="center-vs">
+          <p>vs</p>
+        </div>
+        <div class="tex-boxer">
+          <div class="three-cols" style="float:none;">
+            <p>DELHI</p>
+            <i>Dinesh chand</i> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="full-bg">
+    <div class="wrapper">
+      <div class="main-list-wra">
+        <div class="lefer-clander">
+          <div class="rounded-calender">
+            <p class="bg-black">September</p>
+            <p style=" color:#0a905d; font-size:10px; margin-top:6px;"><b style="color:#333;">20</b><br/>
+              sunday</p>
+          </div>
+          <span>10:00pm</span> </div>
+        <div class="tex-boxer">
+          <div class="three-cols" style="float:none;">
+            <p>RAJASTHAN</p>
+            <i>Dinesh chand</i> </div>
+        </div>
+        <div class="center-vs">
+          <p>vs</p>
+        </div>
+        <div class="tex-boxer">
+          <div class="three-cols" style="float:none;">
+            <p>DELHI</p>
+            <i>Dinesh chand</i> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="full-bg">
+    <div class="wrapper">
+      <div class="main-list-wra">
+        <div class="lefer-clander">
+          <div class="rounded-calender">
+            <p class="bg-black">September</p>
+            <p style=" color:#0a905d; font-size:10px; margin-top:6px;"><b style="color:#333;">20</b><br/>
+              sunday</p>
+          </div>
+          <span>10:00pm</span> </div>
+        <div class="tex-boxer">
+          <div class="three-cols" style="float:none;">
+            <p>RAJASTHAN</p>
+            <i>Dinesh chand</i> </div>
+        </div>
+        <div class="center-vs">
+          <p>vs</p>
+        </div>
+        <div class="tex-boxer">
+          <div class="three-cols" style="float:none;">
+            <p>DELHI</p>
+            <i>Dinesh chand</i> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="full-bg">
+    <div class="wrapper">
+      <div class="main-list-wra">
+        <div class="lefer-clander">
+          <div class="rounded-calender">
+            <p class="bg-black">September</p>
+            <p style=" color:#0a905d; font-size:10px; margin-top:6px;"><b style="color:#333;">20</b><br/>
+              sunday</p>
+          </div>
+          <span>10:00pm</span> </div>
+        <div class="tex-boxer">
+          <div class="three-cols" style="float:none;">
+            <p>RAJASTHAN</p>
+            <i>Dinesh chand</i> </div>
+        </div>
+        <div class="center-vs">
+          <p>vs</p>
+        </div>
+        <div class="tex-boxer">
+          <div class="three-cols" style="float:none;">
+            <p>DELHI</p>
+            <i>Dinesh chand</i> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="full-bg">
+    <div class="wrapper">
+      <div class="main-list-wra">
+        <div class="lefer-clander">
+          <div class="rounded-calender">
+            <p class="bg-black">September</p>
+            <p style=" color:#0a905d; font-size:10px; margin-top:6px;"><b style="color:#333;">20</b><br/>
+              sunday</p>
+          </div>
+          <span>10:00pm</span> </div>
+        <div class="tex-boxer">
+          <div class="three-cols" style="float:none;">
+            <p>RAJASTHAN</p>
+            <i>Dinesh chand</i> </div>
+        </div>
+        <div class="center-vs">
+          <p>vs</p>
+        </div>
+        <div class="tex-boxer">
+          <div class="three-cols" style="float:none;">
+            <p>DELHI</p>
+            <i>Dinesh chand</i> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="full-bg">
+    <div class="wrapper">
+      <div class="main-list-wra">
+        <div class="lefer-clander">
+          <div class="rounded-calender">
+            <p class="bg-black">September</p>
+            <p style=" color:#0a905d; font-size:10px; margin-top:6px;"><b style="color:#333;">20</b><br/>
+              sunday</p>
+          </div>
+          <span>10:00pm</span> </div>
+        <div class="tex-boxer">
+          <div class="three-cols" style="float:none;">
+            <p>RAJASTHAN</p>
+            <i>Dinesh chand</i> </div>
+        </div>
+        <div class="center-vs">
+          <p>vs</p>
+        </div>
+        <div class="tex-boxer">
+          <div class="three-cols" style="float:none;">
+            <p>DELHI</p>
+            <i>Dinesh chand</i> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="full-bg">
+    <div class="wrapper">
+      <div class="main-list-wra">
+        <div class="lefer-clander">
+          <div class="rounded-calender">
+            <p class="bg-black">September</p>
+            <p style=" color:#0a905d; font-size:10px; margin-top:6px;"><b style="color:#333;">20</b><br/>
+              sunday</p>
+          </div>
+          <span>10:00pm</span> </div>
+        <div class="tex-boxer">
+          <div class="three-cols" style="float:none;">
+            <p>RAJASTHAN</p>
+            <i>Dinesh chand</i> </div>
+        </div>
+        <div class="center-vs">
+          <p>vs</p>
+        </div>
+        <div class="tex-boxer">
+          <div class="three-cols" style="float:none;">
+            <p>DELHI</p>
+            <i>Dinesh chand</i> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="padding-space" style="padding-top: 23%;">
+    <div class="loderimages loader_user_view"><img src="images/loader-page.gif">
+      <p>Loading...</p>
+    </div>
+    <p class="errorMsgShow" style="text-align:center; display:none;"></p>
+    <div class="ViewProfileHtml"></div>
+  </div>
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer" style="display:none;">
+    <div class="rewards-line"><a href="javascript:void(0);" onClick="window.open('https://www.smartcardglobal.com/register','_system');" >Get a SmartCard</a></div>
+  </div>
+  <div class="left-align">
+    <div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
+      <ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
+        <div class="rounded-image">
+          <p><img src="images/rounded.png"><span>Name</span></p>
+        </div>
+        <li><a href="javascript:void(0);" class="one">Dashboard</a></li>
+        <li><a href="javascript:void(0);"  class="two">My Profile</a></li>
+        <li><a href="javascript:void(0);"  class="three">Change Password</a></li>
+        <li><a href="javascript:void(0);" class="four">Organizers</a></li>
+        <li><a href="javascript:void(0);"  class="five">Happening Events</a></li>
+        <li><a href="javascript:void(0);"  class="six">Popular Venues</a></li>
+        <li><a href="javascript:void(0);"  class="Saven">Review & Ratings</a></li>
+        <li><a href="javascript:void(0);"  class="ete">Followers</a></li>
+        <li><a href="javascript:void(0);"  class="nine">My Team</a></li>
+        <li><a href="javascript:void(0);"  class="ten">Chat Room</a></li>
+        <li><a href="javascript:void(0);"  class="eleone">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!----------- Folder List ------------>
+<div data-role="page" class="jqm-demos jqm-page jqm-card" id="view-profile" data-url="My Profile">
+  <div data-role="header" class="jqm-header">
+    <div class="right-icon"> <a class="back-button ui-link" onClick="onBackKeyDown()" href="javascript:void(0);"><img alt="" src="images/note.png"></a> </div>
+    <div class="left-icon"> <a href="javascript:void(0);" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/back-icon.png" alt="" width="10px;"></a> </div>
+    <h1 class="title">My Profile</h1>
+  </div>
+  <div class="ima-bg-green"> <img src="images/profile.png"> </div>
+  <div class="wrapper">
+    <div class="information" id="margon-bottum">
+      <ul>
+        <li><b>Created by </b><span>Hamant Jain</span></li>
+        <li><b>Email</b><span>12345@gmail.com</span></li>
+        <li><b>Phone</b><span>+9112346655</span></li>
+        <li><b>Date & Time </b><span>Fri, 22 Jul 2016 at 10:30 AM</span></li>
+        <li><b>Entery Fees</b><span>500 Rs /- person</span></li>
+        <li><b>Phone</b><span>+9112346655</span></li>
+        <li><b>Date & Time</b><span>Fri, 22 Jul 2016 at 10:30 AM</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="padding-space" style="padding-top: 23%;">
+    <div class="loderimages loader_user_view"><img src="images/loader-page.gif">
+      <p>Loading...</p>
+    </div>
+    <p class="errorMsgShow" style="text-align:center; display:none;"></p>
+    <div class="ViewProfileHtml"></div>
+  </div>
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer" style="display:none;">
+    <div class="rewards-line"><a href="javascript:void(0);" onClick="window.open('https://www.smartcardglobal.com/register','_system');" >Get a SmartCard</a></div>
+  </div>
+  <div class="left-align">
+    <div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
+      <ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
+        <div class="rounded-image">
+          <p><img src="images/rounded.png"><span>Name</span></p>
+        </div>
+        <li><a href="javascript:void(0);" class="one active">Dashboard</a></li>
+        <li><a href="javascript:void(0);"  class="two">My Profile</a></li>
+        <li><a href="javascript:void(0);"  class="three">Change Password</a></li>
+        <li><a href="javascript:void(0);" class="four">Organizers</a></li>
+        <li><a href="javascript:void(0);"  class="five">Happening Events</a></li>
+        <li><a href="javascript:void(0);"  class="six">Popular Venues</a></li>
+        <li><a href="javascript:void(0);"  class="Saven">Review & Ratings</a></li>
+        <li><a href="javascript:void(0);"  class="ete">Followers</a></li>
+        <li><a href="javascript:void(0);"  class="nine">My Team</a></li>
+        <li><a href="javascript:void(0);"  class="ten">Chat Room</a></li>
+        <li><a href="javascript:void(0);"  class="eleone">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- /page -->
+<!----------- paper cards List ------------>
+<div data-role="page" class="jqm-demos jqm-page jqm-card" id="view-profile" data-url="Result">
+  <div data-role="header" class="jqm-header">
+    <div class="left-icon"> <a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a> </div>
+    <h1 class="title">Result</h1>
+  </div>
+  <div class="wrapper">
+    <div class="nav-horizantail baner-2">
+      <ul>
+        <li><a  href="#" style="padding:7px 21px;">Upcoming</a></li>
+        <li><a  href="#" style="padding:7px 21px;">Complete</a></li>
+        <li><a  href="#" style="padding:7px 21px;">Cancle</a></li>
+      </ul>
+    </div>
+    <div class="recors">
+      <h4 style="display:inline-block; font-size:12px;">Total Players(500)</h4>
+      <h4 style="display:inline-block; float:right; font-size:12px;">Total Teams (25)</h4>
+    </div>
+  </div>
+  <div class="full-bg">
+    <div class="wrapper">
+      <div class="main-list-wra">
+        <div class="lefer-clander">
+          <div class="rounded-calender">
+            <p class="bg-black">September</p>
+            <p style=" color:#0a905d; font-size:10px; margin-top:6px;"><b style="color:#333;">20</b><br/>
+              sunday</p>
+          </div>
+          <span>10:00pm</span> </div>
+        <div class="tex-boxer">
+          <div class="three-cols" style="float:none;">
+            <p>RAJASTHAN</p>
+            <i>Dinesh chand</i> </div>
+        </div>
+        <div class="center-vs">
+          <p>vs</p>
+        </div>
+        <div class="tex-boxer">
+          <div class="three-cols" style="float:none;">
+            <p>DELHI</p>
+            <i>Dinesh chand</i> </div>
+        </div>
+      </div>
+    </div>
+    <div class="won-tex"><i>Dinesh Chand Rajasthan won</i> </div>
+  </div>
+  <div class="full-bg">
+    <div class="wrapper">
+      <div class="main-list-wra">
+        <div class="lefer-clander">
+          <div class="rounded-calender">
+            <p class="bg-black">September</p>
+            <p style=" color:#0a905d; font-size:10px; margin-top:6px;"><b style="color:#333;">20</b><br/>
+              sunday</p>
+          </div>
+          <span>10:00pm</span> </div>
+        <div class="tex-boxer">
+          <div class="three-cols" style="float:none;">
+            <p>RAJASTHAN</p>
+            <i>Dinesh chand</i> </div>
+        </div>
+        <div class="center-vs">
+          <p>vs</p>
+        </div>
+        <div class="tex-boxer">
+          <div class="three-cols" style="float:none;">
+            <p>DELHI</p>
+            <i>Dinesh chand</i> </div>
+        </div>
+      </div>
+    </div>
+    <div class="won-tex"><i>Dinesh Chand Rajasthan won</i> </div>
+  </div>
+  <div class="full-bg">
+    <div class="wrapper">
+      <div class="main-list-wra">
+        <div class="lefer-clander">
+          <div class="rounded-calender">
+            <p class="bg-black">September</p>
+            <p style=" color:#0a905d; font-size:10px; margin-top:6px;"><b style="color:#333;">20</b><br/>
+              sunday</p>
+          </div>
+          <span>10:00pm</span> </div>
+        <div class="tex-boxer">
+          <div class="three-cols" style="float:none;">
+            <p>RAJASTHAN</p>
+            <i>Dinesh chand</i> </div>
+        </div>
+        <div class="center-vs">
+          <p>vs</p>
+        </div>
+        <div class="tex-boxer">
+          <div class="three-cols" style="float:none;">
+            <p>DELHI</p>
+            <i>Dinesh chand</i> </div>
+        </div>
+      </div>
+    </div>
+    <div class="won-tex"><i>Dinesh Chand Rajasthan won</i> </div>
+  </div>
+  <div class="full-bg">
+    <div class="wrapper">
+      <div class="main-list-wra">
+        <div class="lefer-clander">
+          <div class="rounded-calender">
+            <p class="bg-black">September</p>
+            <p style=" color:#0a905d; font-size:10px; margin-top:6px;"><b style="color:#333;">20</b><br/>
+              sunday</p>
+          </div>
+          <span>10:00pm</span> </div>
+        <div class="tex-boxer">
+          <div class="three-cols" style="float:none;">
+            <p>RAJASTHAN</p>
+            <i>Dinesh chand</i> </div>
+        </div>
+        <div class="center-vs">
+          <p>vs</p>
+        </div>
+        <div class="tex-boxer">
+          <div class="three-cols" style="float:none;">
+            <p>DELHI</p>
+            <i>Dinesh chand</i> </div>
+        </div>
+      </div>
+    </div>
+    <div class="won-tex"><i>Dinesh Chand Rajasthan won</i> </div>
+  </div>
+  <div class="full-bg">
+    <div class="wrapper">
+      <div class="main-list-wra">
+        <div class="lefer-clander">
+          <div class="rounded-calender">
+            <p class="bg-black">September</p>
+            <p style=" color:#0a905d; font-size:10px; margin-top:6px;"><b style="color:#333;">20</b><br/>
+              sunday</p>
+          </div>
+          <span>10:00pm</span> </div>
+        <div class="tex-boxer">
+          <div class="three-cols" style="float:none;">
+            <p>RAJASTHAN</p>
+            <i>Dinesh chand</i> </div>
+        </div>
+        <div class="center-vs">
+          <p>vs</p>
+        </div>
+        <div class="tex-boxer">
+          <div class="three-cols" style="float:none;">
+            <p>DELHI</p>
+            <i>Dinesh chand</i> </div>
+        </div>
+      </div>
+    </div>
+    <div class="won-tex"><i>Dinesh Chand Rajasthan won</i> </div>
+  </div>
+  <div class="full-bg">
+    <div class="wrapper">
+      <div class="main-list-wra">
+        <div class="lefer-clander">
+          <div class="rounded-calender">
+            <p class="bg-black">September</p>
+            <p style=" color:#0a905d; font-size:10px; margin-top:6px;"><b style="color:#333;">20</b><br/>
+              sunday</p>
+          </div>
+          <span>10:00pm</span> </div>
+        <div class="tex-boxer">
+          <div class="three-cols" style="float:none;">
+            <p>RAJASTHAN</p>
+            <i>Dinesh chand</i> </div>
+        </div>
+        <div class="center-vs">
+          <p>vs</p>
+        </div>
+        <div class="tex-boxer">
+          <div class="three-cols" style="float:none;">
+            <p>DELHI</p>
+            <i>Dinesh chand</i> </div>
+        </div>
+      </div>
+    </div>
+    <div class="won-tex"><i>Dinesh Chand Rajasthan won</i> </div>
+  </div>
+  <div class="padding-space" style="padding-top: 23%;">
+    <div class="loderimages loader_user_view"><img src="images/loader-page.gif">
+      <p>Loading...</p>
+    </div>
+    <p class="errorMsgShow" style="text-align:center; display:none;"></p>
+    <div class="ViewProfileHtml"></div>
+  </div>
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer" style="display:none;">
+    <div class="rewards-line"><a href="javascript:void(0);" onClick="window.open('https://www.smartcardglobal.com/register','_system');" >Get a SmartCard</a></div>
+  </div>
+  <div class="left-align">
+    <div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
+      <ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
+        <div class="rounded-image">
+          <p><img src="images/rounded.png"><span>Name</span></p>
+        </div>
+        <li><a href="javascript:void(0);" class="one">Dashboard</a></li>
+        <li><a href="javascript:void(0);"  class="two">My Profile</a></li>
+        <li><a href="javascript:void(0);"  class="three">Change Password</a></li>
+        <li><a href="javascript:void(0);" class="four">Organizers</a></li>
+        <li><a href="javascript:void(0);"  class="five">Happening Events</a></li>
+        <li><a href="javascript:void(0);"  class="six">Popular Venues</a></li>
+        <li><a href="javascript:void(0);"  class="Saven">Review & Ratings</a></li>
+        <li><a href="javascript:void(0);"  class="ete">Followers</a></li>
+        <li><a href="javascript:void(0);"  class="nine">My Team</a></li>
+        <li><a href="javascript:void(0);"  class="ten">Chat Room</a></li>
+        <li><a href="javascript:void(0);"  class="eleone">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- /page -->
+<!----------- paper cards Detail ------------>
+<div data-role="page" class="jqm-demos jqm-page jqm-card" id="view-profile" data-url="Settings">
+  <div data-role="header" class="jqm-header">
+    <div class="right-icon"> <a href="javascript:void(0);" onClick="onBackKeyDown()" class="back-button"><img src="images/note.png" alt=""></a> </div>
+    <div class="left-icon"> <a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a> </div>
+    <h1 class="title">Settings</h1>
+  </div>
+  <!----------- dashboard------------>
+ <div class="full-bg top-settingpage">
+    <div class="wrapper">
+      <div class="main-wrapper-cols">
+        <h2>Where are your now ?</h2>
+      </div>
+	  
+	  <div class="form-group style-chang">
+          <div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset chang-width"><input type="text" id="usr" class="form-control" placeholder="Jaipur"></div>
+        </div>
+	  
+	  
+    </div>
+  </div>
+  
+  
+  <div  class="wrapper">
+  
+  
+  <div class="main-wrapper-cols">
+        <h2>What are your interest ?</h2>
+      </div>
+  
+  <div class="middle-vertical">
+  
+  <div class="main-chackbox-block">
+  
+<input class="chack-clear" type="checkbox" name="vehicle" value="Bike"><p>Promotional Event</p> </div>
+
+<div class="main-chackbox-block">
+  
+<input class="chack-clear" type="checkbox" name="vehicle" value="Bike"><p>Birthday Event</p> </div>
+
+</div>
+
+
+<div class="middle-vertical">
+  
+  <div class="main-chackbox-block">
+  
+<input class="chack-clear" type="checkbox" name="vehicle" value="Bike"><p>Fashion Show</p> </div>
+
+<div class="main-chackbox-block">
+  
+<input class="chack-clear" type="checkbox" name="vehicle" value="Bike"><p>Corporate Artist Event</p> </div>
+
+</div>
+
+
+
+
+<div class="middle-vertical">
+  
+  <div class="main-chackbox-block">
+  
+<input class="chack-clear" type="checkbox" name="vehicle" value="Bike"><p>Concerts Services</p> </div>
+
+<div class="main-chackbox-block">
+  
+<input class="chack-clear" type="checkbox" name="vehicle" value="Bike"><p>Royal Wedding</p> </div>
+
+</div>
+
+
+
+
+<div class="middle-vertical">
+  
+  <div class="main-chackbox-block">
+  
+<input class="chack-clear" type="checkbox" name="vehicle" value="Bike"><p>Music & Entertainment</p> </div>
+
+<div class="main-chackbox-block">
+  
+<input class="chack-clear" type="checkbox" name="vehicle" value="Bike"><p>School College Events</p> </div>
+
+</div>
+
+
+
+
+<div class="middle-vertical">
+  
+  <div class="main-chackbox-block">
+  
+<input class="chack-clear" type="checkbox" name="vehicle" value="Bike"><p>Conference and
+ Seminars</p> </div>
+
+<div class="main-chackbox-block">
+  
+<input class="chack-clear" type="checkbox" name="vehicle" value="Bike"><p>Live Concerts</p> </div>
+
+</div>
+ 
+ 
+ <div class="style-chang" style="margin-top:24px;">
+          <button class="ui-btn-submit ui-btn ui-corner-all" onclick="homeLogin()">Save</button>
+        </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+
+ 
+  
+  </div>
+  
+  
+  
+   <!----------- dashboard------------>
+  
+  
+  <div class="padding-space" style="padding-top: 23%;">
+    <div class="loderimages loader_user_view"><img src="images/loader-page.gif">
+      <p>Loading...</p>
+    </div>
+    <p class="errorMsgShow" style="text-align:center; display:none;"></p>
+    <div class="ViewProfileHtml"></div>
+  </div>
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer" style="display:none;">
+    <div class="rewards-line"><a href="javascript:void(0);" onClick="window.open('https://www.smartcardglobal.com/register','_system');" >Get a SmartCard</a></div>
+  </div>
+  <div class="left-align">
+    <div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
+      <ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
+        <div class="rounded-image">
+          <p><img src="images/rounded.png"><span>Name</span></p>
+        </div>
+        <li><a href="javascript:void(0);" class="one active">Dashboard</a></li>
+        <li><a href="javascript:void(0);"  class="two">My Profile</a></li>
+        <li><a href="javascript:void(0);"  class="three">Change Password</a></li>
+        <li><a href="javascript:void(0);" class="four">Organizers</a></li>
+        <li><a href="javascript:void(0);"  class="five">Happening Events</a></li>
+        <li><a href="javascript:void(0);"  class="six">Popular Venues</a></li>
+        <li><a href="javascript:void(0);"  class="Saven">Review & Ratings</a></li>
+        <li><a href="javascript:void(0);"  class="ete">Followers</a></li>
+        <li><a href="javascript:void(0);"  class="nine">My Team</a></li>
+        <li><a href="javascript:void(0);"  class="ten">Chat Room</a></li>
+        <li><a href="javascript:void(0);"  class="eleone">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- /page -->
+<!----------- update cards images ------------>
+<div data-role="page" class="jqm-demos jqm-page jqm-card" id="card-image-update" data-url="card-image-update">
+  <div data-role="header" class="jqm-header">
+    <div class="left-icon"> <a href="javascript:void(0);" onClick="onBackKeyDown()" class="back-button"><img src="images/back-icon.png" alt=""></a> </div>
+    <div class="left-icon"> <a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a> </div>
+    <h1 class="title">Card Image</h1>
+  </div>
+  <!-- /header -->
+  <div role="main" class="no-padding">
+    <div class="contand-for"></div>
+    <p class="errorMsgShow" style="text-align:center; display:none;"></p>
+    <div class="loderimages loader_papercard"><img src="images/loader-page.gif">
+      <p>Loading...</p>
+    </div>
+    <div class="add-paper-card"> <b class="title">Update Card Image</b>
+      <div class="cardimagesHtml"></div>
+    </div>
+  </div>
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer">
+    <div class="rewards-line"><a href="javascript:void(0);" onClick="window.open('https://www.smartcardglobal.com','_system');" >Get a SmartCard</a></div>
+  </div>
+  <!-- /footer -->
+  <div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="right" data-display="overlay">
+    <ul class="jqm-list ui-alt-icon ui-nodisc-icon">
+      <li><a href="javascript:void(0);" onClick="cardlist()" data-ajax="false">Home</a></li>
+      <li><a href="javascript:void(0);" rel="external" onClick="viewProfile()" data-ajax="false">Profile</a></li>
+      <li><a href="javascript:void(0);" onClick="myfolderList()" data-ajax="false">Search Cards</a></li>
+      <li><a href="javascript:void(0);" onClick="myfolderList()" data-ajax="false">Cards</a></li>
+      <li><a href="#change-password" data-ajax="false">Change Password</a></li>
+      <li><a href="javascript:void(0);" onClick="logout();" data-ajax="false">Logout</a></li>
+    </ul>
+  </div>
+</div>
+<!-- /page -->
+<script src="js/swiper.min.js"></script>
+<script type="text/javascript">
+			$('#foo').slideme({
+				arrows: true,
+				//pagination: "numbers",
+				nativeTouchScroll: true,
+				resizable: {
+					width: 320,
+					height: 250,
+				}
+			});
+		</script>
+<script src="js/index.js"></script>
+</body>
+</html>

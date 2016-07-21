@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!--<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; img-src * data:; script-src 'self' 'unsafe-inline' 'unsafe-eval'">-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Judav</title>
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/slideme.css">
+		<link rel="stylesheet" href="css/google_font.css">
+		<link rel="stylesheet" href="css/jquery.rateyo.min.css">
+		
+		<script src="https://connect.facebook.net/en_US/all.js"></script>		
+		<script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script src="js/jquery.validate.min.js"></script>
+		<script src="js/openfb.js"></script>
+		<script src="js/common.js"></script>
+		<script src="js/jquery.rateyo.min.js"></script>
+		<script type="text/javascript" src="https://maps.google.com/maps/api/js"></script>
+	</head>
+	
+	<body>		
+		<div data-role="page" class="jqm-demos jqm-home" id="index" data-url="index">
+			<div role="main" class="ui-content jqm-content">			
+				<div class="home-logo"><img class="b-radiu-logo" src="images/logo.png" alt="" /></div>
+				<div data-role="navbar" class="home-buttons"> 
+					<ul id="horizental_nav">
+						<li><a href="#login" data-transition="slide" id="bg_for" style="background:#27457b; color:#fff;">Login</a></li>
+						<li><a href="javascript:;" onClick="registerForm()" id="bg_for" style="background:#27457b; color:#fff;">Register</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div data-role="page" class="jqm-demos jqm-home jqm-login" id="login" data-url="login">
+			<div role="main" class="ui-content jqm-content">
+				<div class="home-logo"><img class="b-radiu-logo" src="images/logo.png" alt="" /></div>
+				<div class="loderimages loader_login"><img src="images/loader-page.gif"><p>Loading...</p></div>
+				<p class="errorMsgShow" style="text-align:center; display:none;"></p>
+				<div class="login-form">
+					<a href="javascript:;" style="outline: 0px none;">
+						<div class="facebook">
+							<p>f<span onclick="RegisterInfb()">Login With Facebook</span></p>
+						</div>
+					</a>
+					<div class="or-line">
+						<p></p>
+						<h3>Or</h3>
+					</div>	
+					
+					<form id="login_form">
+						<div class="form-group style-chang">
+							<input type="text" placeholder="Email" class="form-control" id="login-email" name="email"/>
+						</div>
+						
+						<div class="form-group style-chang">
+							<input type="password" placeholder="Password" class="form-control" id="login-password" name="password"/>
+						</div>
+						
+						<div class="style-chang">
+							<button type="submit" onClick="homeLogin()" class="ui-btn-submit ui-btn ui-corner-all">Login</button>
+						</div>
+					</form>
+					<div class="other-link">Don't have account? <a href="javascript:;" onClick="registerForm()" class="ui-link">Click here</a></div>
+				</div>
+			</div>
+		</div>
+		
+		<div data-role="page" class="jqm-demos jqm-home jqm-login" id="forgot-password" data-url="forgot-password">
+			<div role="main" class="ui-content jqm-content">
+				<div class="home-logo"><img class="b-radiu-logo" src="images/logo.png" alt=""/></div>
+				<div class="loderimages loader_forgotpass"><img src="images/loader-page.gif"><p>Loading...</p></div>
+				<p class="errorMsgShow" style="text-align:center; display:none;"></p> 
+				<div class="forgotpassword-form">
+					<form id="forgotpassword_form" method="post" enctype="multipart/form-data" name="forgotpassword_form">
+						<input type="text" name="forgot_email" placeholder="Email Address" id="forgot_email" value=""/>
+						<button id="forgot-email-button" onClick="forgotPassword();" class="ui-btn ui-btn-submit ui-corner-all">Forgot Password</button>
+					</form>
+					<div class="other-link">Don't have account? <a href="javascript:;" onClick="registerForm()">Click here</a></div>
+				</div>
+			</div>
+		</div>
+ 		
+		<div data-role="page" class="jqm-demos jqm-home jqm-login" id="register" data-url="register">
+			<div role="main" class="ui-content jqm-content">
+				<div class="home-logo"><img class="b-radiu-logo" src="images/logo.png" alt="" /></div>
+				<div class="register-form">
+					<div class="loderimages loader_registeradd"><img src="images/loader-page.gif"><p>Loading...</p></div>
+					<p class="errorMsgShow" style="text-align:center; display:none;"></p> 
+					<a href="javascript:;" style="outline: 0px none;">
+						<div class="facebook">
+							<p>f<span onclick="RegisterInfb()">Login With Facebook</span></p>
+						</div>
+					</a>
+					
+					<div class="or-line">
+						<p></p>
+						<h3>Or</h3>
+					</div>	
+					
+					<form id="register_form">
+						
+						<div class="form-group style-chang">
+							<input type="text" placeholder="Full Name" class="form-control" name="full_name" id="full_name">
+						</div>
+						
+						<div class="form-group style-chang">
+							<input type="text" placeholder="Email" class="form-control" name="email" id="email">
+						</div>
+						
+						<div class="form-group style-chang">
+							<input type="Password" placeholder="Password" class="form-control" name="password" id="password">
+						</div>
+						
+						<div class="form-group style-chang">
+							<input type="text" placeholder="Phone" class="form-control" name="phone" id="phone">
+						</div>
+						
+						<div class="form-group style-chang">
+							<input type="text" placeholder="City" class="form-control" name="city" id="city">
+						</div>
+						
+						<div class="form-group style-chang">
+							<input type="text" placeholder="State" class="form-control" name="state" id="state">
+						</div>
+						
+						<div class="form-group style-chang country_Html"></div>
+						
+						<div class="keeps-checkbox">
+							<input type="checkbox" name="terms_conditions" id="terms_conditions" checked="">
+							<label for="terms_conditions">Terms & Conditions</label>
+						</div>
+						
+						<div class="style-chang">
+							<button type="submit" onClick="register()" class="ui-btn-submit ui-btn ui-corner-all">Register</button>
+						</div>
+						
+					</form>
+					
+					<div class="other-link">Already have account? <a data-transition="slide" data-direction="reverse" href="#login" class="ui-link">Click here</a></div>
+					
+				</div>
+			</div>
+		</div> 
+		
+		<!----------- Dashboard ------------>
+		
+		<div data-role="page" class="jqm-demos jqm-page jqm-card" id="dashboard" data-url="dashboard">        
+			
+			<div data-role="header" class="jqm-header">
+				<div class="right-icon">
+                	<a href="javascript:void(0);" onClick="notifications()" class="back-button"><img src="images/note.png" alt=""></a>
+				</div>
+                <div class="left-icon">
+                	<a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a>
+				</div>
+                <h1 class="title">Dashboard</h1>
+			</div>
+			
+			<div id="headingHtml" >
+				
+			</div>
+			
+			<!--<div class="desboard-link">
+				<div class="outer"><a href="javascript:;" onclick="dashboard()" class="ui-link"><div class="desboard-click"><img src="images/des.png"></div></a><br>Dashboard</div>
+				<div class="outer"><a href="#Upload_Photo" class="ui-link"><div class="desboard-click"><img src="images/Upload Photo.png"></div></a><br>Upload Photo</div>
+				<div class="outer"><a href="#change-password" class="ui-link"><div class="desboard-click"><img src="images/Change Password.png"></div></a><br>Change Password</div>
+				<div class="outer"><a href="javascript:;" onclick="viewProfile()" class="ui-link"><div class="desboard-click"><img src="images/Delete My Frofile.png"></div></a><br>My Frofile</div>
+			</div> -->	
+			
+			<div class="padding-space" style="padding-top: 23%;">
+				<div class="loderimages loader_dashboard"><img src="images/loader-page.gif"><p>Loading...</p></div>
+				<p class="errorMsgShow" style="text-align:center; display:none;"></p>
+				
+			</div>
+			
+			<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer" style="display:none;">
+				<div class="rewards-line"><a href="javascript:void(0);" onClick="window.open('https://www.smartcardglobal.com/register','_system');" >Get a SmartCard</a></div>
+			</div>
+			
+			<div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
+				<ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
+					<div class="rounded-image">
+						<p><img src="images/rounded.png"><span>Name</span></p>
+					</div>
+					<li><a href="javascript:void(0);" onclick="dashboard()" class="one active">Dashboard</a></li>
+					<li><a href="javascript:void(0);" onClick="viewProfile()" class="two">My Profile</a></li>
+					<li><a href="javascript:void(0);" onClick="editProfile()" class="two">Edit Profile</a></li>
+					<li><a href="#change-password" class="three">Change Password</a></li>
+					<li><a href="javascript:void(0);" onclick="organizerList()" class="four">Organizers</a></li>
+					<li><a href="javascript:void(0);" onclick="favouriteEventList()" class="five">Favourite Events</a></li>
+					<li><a href="javascript:void(0);" onclick="venueList()" class="six">Popular Venues</a></li>
+					<li><a href="javascript:void(0);" onclick="reviewRating()" class="Saven">Review & Ratings</a></li>
+					<li><a href="javascript:void(0);" onclick="followerList()" class="ete">Followers</a></li>
+					<li><a href="javascript:void(0);" onclick="feedbackAdd()" class="ten">Feedback</a></li>
+					<li><a href="javascript:void(0);" onClick="logout();" class="eleone" data-ajax="false">Logout</a></li>
+				</ul>
+			</div> 
+			
+		</div><!-- /page -->
+		
+		<!----------- Match List ------------>
+		<div data-role="page" class="jqm-demos jqm-page jqm-card" id="match-list" data-url="match-list">
+			
+			<div data-role="header" class="jqm-header">
+				<div class="left-icon"> <a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a> </div>
+				<h1 class="title">Match List</h1>
+			</div> 
+			
+			<div class="matchelistHtml"></div>
+		    
+			<div class="padding-space" style="padding-top: 23%;">
+				<div class="loderimages loader_matchelist"><img src="images/loader-page.gif">
+					<p>Loading...</p>
+				</div>
+				<p class="errorMsgShow" style="text-align:center; display:none;"></p>
+				
+			</div>
+			<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer" style="display:none;">
+				<div class="rewards-line"><a href="javascript:void(0);" onClick="window.open('https://www.smartcardglobal.com/register','_system');" >Get a SmartCard</a></div>
+			</div>
+			<div class="left-align">
+				<div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
+					<ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
+						<div class="rounded-image">
+							<p><img src="images/rounded.png"><span>Name</span></p>
+						</div>
+						<li><a href="javascript:void(0);" onclick="dashboard()" class="one active">Dashboard</a></li>
+						<li><a href="javascript:void(0);" onClick="viewProfile()" class="two">My Profile</a></li>
+						<li><a href="javascript:void(0);" onClick="editProfile()" class="two">Edit Profile</a></li>
+						<li><a href="#change-password" class="three">Change Password</a></li>
+						<li><a href="javascript:void(0);" onclick="organizerList()" class="four">Organizers</a></li>
+						<li><a href="javascript:void(0);" onclick="favouriteEventList()" class="five">Favourite Events</a></li>
+						<li><a href="javascript:void(0);" onclick="venueList()" class="six">Popular Venues</a></li>
+						<li><a href="javascript:void(0);" onclick="reviewRating()" class="Saven">Review & Ratings</a></li>
+						<li><a href="javascript:void(0);" onclick="followerList()" class="ete">Followers</a></li>
+						<li><a href="javascript:void(0);" onclick="feedbackAdd()" class="ten">Feedback</a></li>
+						<li><a href="javascript:void(0);" onClick="logout();" class="eleone" data-ajax="false">Logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		
+		<!----------- Team List ------------>
+		<div data-role="page" class="jqm-demos jqm-page jqm-card" id="team-list" data-url="team-list">
+			
+			<div data-role="header" class="jqm-header">
+				<div class="left-icon"> <a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a> </div>
+				<h1 class="title">Team List</h1>
+			</div> 
+			
+			<div class="teamlistHtml"></div>
+		    
+			<div class="padding-space" style="padding-top: 23%;">
+				<div class="loderimages loader_teamlist"><img src="images/loader-page.gif">
+					<p>Loading...</p>
+				</div>
+				<p class="errorMsgShow" style="text-align:center; display:none;"></p>
+				
+			</div>
+			<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer" style="display:none;">
+				<div class="rewards-line"><a href="javascript:void(0);" onClick="window.open('https://www.smartcardglobal.com/register','_system');" >Get a SmartCard</a></div>
+			</div>
+			<div class="left-align">
+				<div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
+					<ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
+						<div class="rounded-image">
+							<p><img src="images/rounded.png"><span>Name</span></p>
+						</div>
+						<li><a href="javascript:void(0);" onclick="dashboard()" class="one active">Dashboard</a></li>
+						<li><a href="javascript:void(0);" onClick="viewProfile()" class="two">My Profile</a></li>
+						<li><a href="javascript:void(0);" onClick="editProfile()" class="two">Edit Profile</a></li>
+						<li><a href="#change-password" class="three">Change Password</a></li>
+						<li><a href="javascript:void(0);" onclick="organizerList()" class="four">Organizers</a></li>
+						<li><a href="javascript:void(0);" onclick="favouriteEventList()" class="five">Favourite Events</a></li>
+						<li><a href="javascript:void(0);" onclick="venueList()" class="six">Popular Venues</a></li>
+						<li><a href="javascript:void(0);" onclick="reviewRating()" class="Saven">Review & Ratings</a></li>
+						<li><a href="javascript:void(0);" onclick="followerList()" class="ete">Followers</a></li>
+						<li><a href="javascript:void(0);" onclick="feedbackAdd()" class="ten">Feedback</a></li>
+						<li><a href="javascript:void(0);" onClick="logout();" class="eleone" data-ajax="false">Logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<!----------- Change Password ------------>
+		
+		<div data-role="page" class="jqm-demos jqm-page jqm-card" id="change-password" data-url="change-password">        
+			
+			<div data-role="header" class="jqm-header">
+				<div class="right-icon">
+                	<a href="javascript:void(0);" onClick="notifications()" class="back-button"><img src="images/note.png" alt=""></a>
+				</div>	
+				<div class="left-icon"> <a href="javascript:void(0);" onClick="onBackKeyDown()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/back-icon.png" alt="" width="10px;"></a> </div>
+				
+                <h1 class="title">Change Password</h1>
+			</div>
+			
+			<div class="wrapper">
+				
+				<div class="tex-box-two">
+				
+				<div class="tex-lorem">
+				<div class="recors">
+				<h4 style="font-size:14px;">Change your password</h4>
+				</div>
+				<p>You can change your password here. Your new password will be send on registered email address. Please check  spam folder if its not find in indox.</p>
+				</div>
+				
+				<form id="changepassword_form" method="post" enctype="multipart/form-data" name="changepassword_form">
+				<div class="form-group style-chang">
+				<input type="password" placeholder="New Password" class="form-control" id="new_password" name="new_password">
+				</div>
+				
+				<div class="form-group style-chang">
+				<input type="password" placeholder="Password Confirmation" class="form-control" id="password_confirmation" name="password_confirmation">
+				</div> 
+				
+				<div class="style-chang">
+				<button onClick="changePassword()" class="ui-btn ui-btn-submit ui-corner-all">Change Password</button>
+				</div>
+				</form>
+				</div>
+				</div>
+				
+				<div class="padding-space" style="padding-top: 23%;">
+				<div class="loderimages loader_changepass"><img src="images/loader-page.gif"><p>Loading...</p></div>
+				<p class="errorMsgShow" style="text-align:center; display:none;"></p>
+				</div>
+				
+				<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer" style="display:none;">
+				<div class="rewards-line"><a href="javascript:void(0);" onClick="window.open('https://www.smartcardglobal.com/register','_system');" >Get a SmartCard</a></div>
+				</div>
+				
+				
+				</div><!-- /page --> 
+				
+				
+				<!----------- My Profile ------------>
+				<div data-role="page" class="jqm-demos jqm-page jqm-card" id="view-profile" data-url="view-profile">
+				
+				<div data-role="header" class="jqm-header">
+				<div class="right-icon"> <a class="back-button ui-link" onClick="notifications()" type="button" href="javascript:void(0);"><img alt="" src="images/note.png"></a> </div>
+				<div class="left-icon"> <a href="javascript:void(0);" onClick="onBackKeyDown()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/back-icon.png" alt="" width="10px;"></a> </div>
+				<h1 class="title">My Profile</h1>
+				</div>
+				
+				<div class="padding-space" style="padding-top: 23%;">
+				<div class="loderimages loader_user_view"><img src="images/loader-page.gif">
+				<p>Loading...</p>
+				</div>
+				<p class="errorMsgShow" style="text-align:center; display:none;"></p>
+				</div>
+				
+				<div class="ViewProfileHtml"></div>
+				
+				</div>
+				
+				
+				
+				<!----------- Organizer List ------------>
+				
+				<div data-role="page" class="jqm-demos jqm-page jqm-card" id="organizer-list" data-url="organizer-list">        
+				
+				<div data-role="header" class="jqm-header">
+				<div class="right-icon width-right">
+				<a href="javascript:void(0);" onClick="onBackKeyDown()" class="back-button"><img src="images/filter.png" alt=""></a>
+				</div>
+				<div class="right-icon width-right">
+				<a href="javascript:void(0);" onClick="organizerList(1)" class="back-button"><img src="images/hart.png" alt=""></a>
+				</div>	
+                <div class="left-icon">
+				<a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a>
+				</div>
+                <h1 class="title">Organizers</h1>
+				</div>
+				
+				<div class="organizerlistHtml"></div> 
+				
+				<div class="padding-space" style="padding-top: 23%;">
+				<div class="loderimages loader_organizerlist"><img src="images/loader-page.gif"><p>Loading...</p></div>
+				<p class="errorMsgShow" style="text-align:center; display:none;"></p>
+				</div>
+				
+				<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer">
+				<div class="rewards-line"><a style="color:#000;" href="javascript:void(0);" onClick="window.open('http://192.168.1.16/projects/phonegap/judav/www/','_system');" >Judav</a></div>
+				</div>
+				
+				<div class="left-align">
+				<div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
+				<ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
+				<div class="rounded-image">
+				<p><img src="images/rounded.png"><span>Name</span></p>
+				</div>
+				<li><a href="javascript:void(0);" onclick="dashboard()" class="one active">Dashboard</a></li>
+				<li><a href="javascript:void(0);" onClick="viewProfile()" class="two">My Profile</a></li>
+				<li><a href="javascript:void(0);" onClick="editProfile()" class="two">Edit Profile</a></li>
+				<li><a href="#change-password" class="three">Change Password</a></li>
+				<li><a href="javascript:void(0);" onclick="organizerList()" class="four">Organizers</a></li>
+				<li><a href="javascript:void(0);" onclick="favouriteEventList()" class="five">Favourite Events</a></li>
+				<li><a href="javascript:void(0);" onclick="venueList()" class="six">Popular Venues</a></li>
+				<li><a href="javascript:void(0);" onclick="reviewRating()" class="Saven">Review & Ratings</a></li>
+				<li><a href="javascript:void(0);" onclick="followerList()" class="ete">Followers</a></li>
+				<li><a href="javascript:void(0);" onclick="feedbackAdd()" class="ten">Feedback</a></li>
+				<li><a href="javascript:void(0);" onClick="logout();" class="eleone" data-ajax="false">Logout</a></li>
+				</ul>
+				</div>
+				</div>
+				</div> 
+				
+				
+				<!----------- Organizer Detail ------------>
+				
+				<div data-role="page" class="jqm-demos jqm-page jqm-card" id="organizer-detail" data-url="organizer-detail">
+				<div data-role="header" class="jqm-header">
+				<div class="left-icon"> <a href="javascript:void(0);" onClick="onBackKeyDown()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/back-icon.png" alt="" width="10px;"></a> </div>
+				<h1 class="title">Organizers Detail</h1>
+				</div>
+				
+				<div class="padding-space" style="padding-top: 23%;">
+				<div class="loderimages loader_organizer_detail"><img src="images/loader-page.gif"><p>Loading...</p></div>
+				<p class="errorMsgShow" style="text-align:center; display:none;"></p>
+				</div>
+				
+				<div class="organizerDetailHtml"></div>
+				</div>
+				
+				
+				
+				<!----------- Event List ------------>
+				<div data-role="page" class="jqm-demos jqm-page jqm-card" id="event-list" data-url="event-list">
+				<div data-role="header" class="jqm-header">
+				<div class="right-icon width-right"> <a href="javascript:void(0);" onClick="onBackKeyDown()" class="back-button"><img src="images/filter.png" alt=""></a> </div>
+				<div class="left-icon"> <a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a> </div>
+				<h1 class="title">Events</h1>
+				</div>
+				
+				<div class="eventlistHtml"></div>
+				
+				<div class="padding-space" style="padding-top: 23%;">
+				<div class="loderimages loader_eventlist"><img src="images/loader-page.gif">
+				<p>Loading...</p>
+				</div>
+				<p class="errorMsgShow" style="text-align:center; display:none;"></p>
+				</div>
+				
+				<div class="left-align">
+				<div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
+				<ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
+				<div class="rounded-image">
+				<p><img src="images/rounded.png"><span>Name</span></p>
+				</div>
+				<li><a href="javascript:void(0);" onclick="dashboard()" class="one active">Dashboard</a></li>
+				<li><a href="javascript:void(0);" onClick="viewProfile()" class="two">My Profile</a></li>
+				<li><a href="javascript:void(0);" onClick="editProfile()" class="two">Edit Profile</a></li>
+				<li><a href="#change-password" class="three">Change Password</a></li>
+				<li><a href="javascript:void(0);" onclick="organizerList()" class="four">Organizers</a></li>
+				<li><a href="javascript:void(0);" onclick="favouriteEventList()" class="five">Favourite Events</a></li>
+				<li><a href="javascript:void(0);" onclick="venueList()" class="six">Popular Venues</a></li>
+				<li><a href="javascript:void(0);" onclick="reviewRating()" class="Saven">Review & Ratings</a></li>
+				<li><a href="javascript:void(0);" onclick="followerList()" class="ete">Followers</a></li>
+				
+				<li><a href="javascript:void(0);" onclick="feedbackAdd()" class="ten">Feedback</a></li>
+				<li><a href="javascript:void(0);" onClick="logout();" class="eleone" data-ajax="false">Logout</a></li>
+				</ul>
+				</div>
+				</div>
+				</div>
+				<!-- /page -->
+				
+				
+				
+				<!----------- Event Detail ------------>
+				<div data-role="page" class="jqm-demos jqm-page jqm-card" id="event-detail" data-url="event-detail">
+				
+				<div data-role="header" class="jqm-header">
+				<div class="left-icon"> <a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a> </div>
+				<h1 class="title">Event Details</h1>
+				</div>
+				
+				<div class="eventDetailHtml"></div>
+				
+				<div class="padding-space" style="padding-top: 23%;">
+				<div class="loderimages loader_event_detail"><img src="images/loader-page.gif">
+				<p>Loading...</p>
+				</div>
+				<p class="errorMsgShow" style="text-align:center; display:none;"></p>
+				</div> 
+				
+				<div class="left-align">
+				<div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
+				<ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
+				<div class="rounded-image">
+				<p><img src="images/rounded.png"><span>Name</span></p>
+				</div>
+				<li><a href="javascript:void(0);" onclick="dashboard()" class="one active">Dashboard</a></li>
+				<li><a href="javascript:void(0);" onClick="viewProfile()" class="two">My Profile</a></li>
+				<li><a href="javascript:void(0);" onClick="editProfile()" class="two">Edit Profile</a></li>
+				<li><a href="#change-password" class="three">Change Password</a></li>
+				<li><a href="javascript:void(0);" onclick="organizerList()" class="four">Organizers</a></li>
+				<li><a href="javascript:void(0);" onclick="favouriteEventList()" class="five">Favourite Events</a></li>
+				<li><a href="javascript:void(0);" onclick="venueList()" class="six">Popular Venues</a></li>
+				<li><a href="javascript:void(0);" onclick="reviewRating()" class="Saven">Review & Ratings</a></li>
+				<li><a href="javascript:void(0);" onclick="followerList()" class="ete">Followers</a></li>
+				
+				<li><a href="javascript:void(0);" onclick="feedbackAdd()" class="ten">Feedback</a></li>
+				<li><a href="javascript:void(0);" onClick="logout();" class="eleone" data-ajax="false">Logout</a></li>
+				</ul>
+				</div>
+				</div>
+				
+				</div>
+				
+				
+				<!----------- Event Review ------------>
+				<div data-role="page" class="jqm-demos jqm-page jqm-card" id="event-review" data-url="event-review">
+				
+				<div data-role="header" class="jqm-header">
+				<div class="left-icon"> <a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a> </div>
+				<h1 class="title">Event Review</h1>
+				</div>
+				
+				<div class="eventReviewHtml"></div>
+				
+				<div class="padding-space" style="padding-top: 23%;">
+				<div class="loderimages loader_event_review"><img src="images/loader-page.gif">
+				<p>Loading...</p>
+				</div>
+				<p class="errorMsgShow" style="text-align:center; display:none;"></p>
+				</div>
+				
+				<div class="left-align">
+				<div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
+				<ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
+				<div class="rounded-image">
+				<p><img src="images/rounded.png"><span>Name</span></p>
+				</div>
+				<li><a href="javascript:void(0);" onclick="dashboard()" class="one active">Dashboard</a></li>
+				<li><a href="javascript:void(0);" onClick="viewProfile()" class="two">My Profile</a></li>
+				<li><a href="javascript:void(0);" onClick="editProfile()" class="two">Edit Profile</a></li>
+				<li><a href="#change-password" class="three">Change Password</a></li>
+				<li><a href="javascript:void(0);" onclick="organizerList()" class="four">Organizers</a></li>
+				<li><a href="javascript:void(0);" onclick="favouriteEventList()" class="five">Favourite Events</a></li>
+				<li><a href="javascript:void(0);" onclick="venueList()" class="six">Popular Venues</a></li>
+				<li><a href="javascript:void(0);" onclick="reviewRating()" class="Saven">Review & Ratings</a></li>
+				<li><a href="javascript:void(0);" onclick="followerList()" class="ete">Followers</a></li>
+				
+				<li><a href="javascript:void(0);" onclick="feedbackAdd()" class="ten">Feedback</a></li>
+				<li><a href="javascript:void(0);" onClick="logout();" class="eleone" data-ajax="false">Logout</a></li>
+				</ul>
+				</div>
+				</div>
+				
+				</div>
+				
+				<!----------- Add Review ------------>
+				
+				<div data-role="page" class="jqm-demos jqm-page jqm-card" id="event-review-add" data-url="event-review-add">
+				
+				<div data-role="header" class="jqm-header">
+				<div class="right-icon"> <a href="javascript:void(0);" onClick="notifications()" class="back-button"><img src="images/note.png" alt=""></a> </div>
+				<div class="left-icon"> <a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a> </div>
+				<h1 class="title">Event Review</h1>
+				</div>
+				
+				<div class="wrapper" style="padding-top: 19%;">
+				<form method="post" id="event_review_add" action="">
+				<input type="hidden" name="add_review_event_id" id="add_review_event_id"/>
+				<input type="hidden" name="rating_review" id="rating_review"/>
+				<div class="form-group style-chang">
+				<textarea name="description" id="description" placeholder="Message" cols="" rows="" class="height-text-area"></textarea>
+				</div>
+				<div class="form-group style-chang">
+				<div class="rateyo-readonly-widg rating_add_review"></div> 
+				</div>
+				<div class="style-chang">
+				<button onClick="eventReviewSubmit()" class="ui-btn ui-btn-submit ui-corner-all">Submit</button>
+				</div>
+				</form>
+				</div>
+				
+				<div class="padding-space" style="padding-top: 23%;">
+				<div class="loderimages loader_event_review_add"><img src="images/loader-page.gif">
+				<p>Loading...</p>
+				</div>
+				<p class="errorMsgShow" style="text-align:center; display:none;"></p>
+				</div>
+				
+				<div class="left-align">
+				<div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
+				<ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
+				<div class="rounded-image">
+				<p><img src="images/rounded.png"><span>Name</span></p>
+				</div>
+				<li><a href="javascript:void(0);" onclick="dashboard()" class="one active">Dashboard</a></li>
+				<li><a href="javascript:void(0);" onClick="viewProfile()" class="two">My Profile</a></li>
+				<li><a href="javascript:void(0);" onClick="editProfile()" class="two">Edit Profile</a></li>
+				<li><a href="#change-password" class="three">Change Password</a></li>
+				<li><a href="javascript:void(0);" onclick="organizerList()" class="four">Organizers</a></li>
+				<li><a href="javascript:void(0);" onclick="favouriteEventList()" class="five">Favourite Events</a></li>
+				<li><a href="javascript:void(0);" onclick="venueList()" class="six">Popular Venues</a></li>
+				<li><a href="javascript:void(0);" onclick="reviewRating()" class="Saven">Review & Ratings</a></li>
+				<li><a href="javascript:void(0);" onclick="followerList()" class="ete">Followers</a></li>
+				
+				<li><a href="javascript:void(0);" onclick="feedbackAdd()" class="ten">Feedback</a></li>
+				<li><a href="javascript:void(0);" onClick="logout();" class="eleone" data-ajax="false">Logout</a></li>
+				</ul>
+				</div>
+				</div>
+				</div>
+				
+				
+				
+				
+				<!----------- Followers List ------------>
+				
+				<div data-role="page" class="jqm-demos jqm-page jqm-card" id="follower-list" data-url="follower-list">
+				<div data-role="header" class="jqm-header">
+				<div class="left-icon"> <a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a> </div>
+				<h1 class="title">Followers</h1>
+				</div>
+				
+				<div class="followerlistHtml"></div> 
+				
+				<div class="padding-space" style="padding-top: 23%;">
+				<div class="loderimages loader_followerlist"><img src="images/loader-page.gif">
+				<p>Loading...</p>
+				</div>
+				<p class="errorMsgShow" style="text-align:center; display:none;"></p>
+				</div>
+				
+				<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer" style="display:none;">
+				<div class="rewards-line"><a href="javascript:void(0);" onClick="window.open('https://www.smartcardglobal.com/register','_system');" >Get a SmartCard</a></div>
+				</div>
+				
+				<div class="left-align">
+				<div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
+				<ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
+				<div class="rounded-image">
+				<p><img src="images/rounded.png"><span>Name</span></p>
+				</div>
+				<li><a href="javascript:void(0);" onclick="dashboard()" class="one active">Dashboard</a></li>
+				<li><a href="javascript:void(0);" onClick="viewProfile()" class="two">My Profile</a></li>
+				<li><a href="javascript:void(0);" onClick="editProfile()" class="two">Edit Profile</a></li>
+				<li><a href="#change-password" class="three">Change Password</a></li>
+				<li><a href="javascript:void(0);" onclick="organizerList()" class="four">Organizers</a></li>
+				<li><a href="javascript:void(0);" onclick="favouriteEventList()" class="five">Favourite Events</a></li>
+				<li><a href="javascript:void(0);" onclick="venueList()" class="six">Popular Venues</a></li>
+				<li><a href="javascript:void(0);" onclick="reviewRating()" class="Saven">Review & Ratings</a></li>
+				<li><a href="javascript:void(0);" onclick="followerList()" class="ete">Followers</a></li>
+				
+				<li><a href="javascript:void(0);" onclick="feedbackAdd()" class="ten">Feedback</a></li>
+				<li><a href="javascript:void(0);" onClick="logout();" class="eleone" data-ajax="false">Logout</a></li>
+				</ul>
+				</div>
+				</div>
+				
+				</div> 
+				
+				
+				
+				
+				<!----------- Follower Detail ------------>
+				
+				<div data-role="page" class="jqm-demos jqm-page jqm-card" id="follower-detail" data-url="follower-detail">
+				<div data-role="header" class="jqm-header">
+				<div class="left-icon"> <a href="javascript:void(0);" onClick="onBackKeyDown()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/back-icon.png" alt="" width="10px;"></a> </div>
+				<h1 class="title">Follower Detail</h1>
+				</div>
+				
+				<div class="padding-space" style="padding-top: 23%;">
+				<div class="loderimages loader_follower_detail"><img src="images/loader-page.gif"><p>Loading...</p></div>
+				<p class="errorMsgShow" style="text-align:center; display:none;"></p>
+				</div>
+				
+				<div class="followerDetailHtml"></div>
+				</div>
+				
+				
+				<!----------- Add Feedback ------------>
+				<div data-role="page" class="jqm-demos jqm-page jqm-card" id="add-feedback" data-url="add-feedback">
+				<div data-role="header" class="jqm-header">
+				<div class="right-icon"> <a href="javascript:void(0);" onClick="notifications()" class="back-button"><img src="images/note.png" alt=""></a> </div>
+				<div class="left-icon"> <a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a> </div>
+				<h1 class="title">Feedback</h1>
+				</div>
+				<div class="wrapper" style="margin-top: 60px;">
+				<div class="proble-share-req">
+				<p><span class="user_name_cls">Dear Mr. Sharma,</span><br/>
+				You can share your problems & suggestion from this page. Our team will review and try to resolve as soon as possible. </p>
+				</div>
+				<form method="post" id="add_feedback" action="">
+				<div class="form-group style-chang">
+				<textarea name="comments" id="comments" placeholder="Message" cols="" rows="" class="height-text-area"></textarea>
+				</div>
+				<div class="style-chang">
+				<button onClick="feedbackSubmit()" class="ui-btn ui-btn-submit ui-corner-all">Submit</button>
+				</div>
+				</form>
+				</div>
+				<div class="padding-space" style="padding-top: 23%;">
+				<div class="loderimages loader_feedback_add"><img src="images/loader-page.gif">
+				<p>Loading...</p>
+				</div>
+				<p class="errorMsgShow" style="text-align:center; display:none;"></p>
+				</div>
+				
+				<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer" style="display:none;">
+				<div class="rewards-line"><a href="javascript:void(0);" onClick="window.open('https://www.smartcardglobal.com/register','_system');" >Get a SmartCard</a></div>
+				</div>
+				
+				<div class="left-align">
+				<div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
+				<ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
+				<div class="rounded-image">
+				<p><img src="images/rounded.png"><span>Name</span></p>
+				</div>
+				<li><a href="javascript:void(0);" onclick="dashboard()" class="one active">Dashboard</a></li>
+				<li><a href="javascript:void(0);" onClick="viewProfile()" class="two">My Profile</a></li>
+				<li><a href="javascript:void(0);" onClick="editProfile()" class="two">Edit Profile</a></li>
+				<li><a href="#change-password" class="three">Change Password</a></li>
+				<li><a href="javascript:void(0);" onclick="organizerList()" class="four">Organizers</a></li>
+				<li><a href="javascript:void(0);" onclick="favouriteEventList()" class="five">Favourite Events</a></li>
+				<li><a href="javascript:void(0);" onclick="venueList()" class="six">Popular Venues</a></li>
+				<li><a href="javascript:void(0);" onclick="reviewRating()" class="Saven">Review & Ratings</a></li>
+				<li><a href="javascript:void(0);" onclick="followerList()" class="ete">Followers</a></li>
+				
+				<li><a href="javascript:void(0);" onclick="feedbackAdd()" class="ten">Feedback</a></li>
+				<li><a href="javascript:void(0);" onClick="logout();" class="eleone" data-ajax="false">Logout</a></li>
+				</ul>
+				</div>
+				</div>
+				</div>
+				
+				
+				<!----------- Edit Profile ------------>
+				<div data-role="page" class="jqm-demos jqm-page jqm-card" id="edit-profile" data-url="edit-profile">
+				<div data-role="header" class="jqm-header">
+				<div class="right-icon"> <a href="javascript:void(0);" onClick="notifications()" class="back-button"><img src="images/note.png" alt=""></a> </div>
+				<div class="left-icon"> <a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a> </div>
+				<h1 class="title">Edit Profile</h1>
+				</div>
+				<div class="wrapper" style="margin-top: 60px;">
+				<div class="EditProfileHtml"></div>
+				</div>
+				<div class="padding-space" style="padding-top: 23%;">
+				<div class="loderimages loader_useredit"><img src="images/loader-page.gif">
+				<p>Loading...</p>
+				</div>
+				<p class="errorMsgShow" style="text-align:center; display:none;"></p>
+				</div>
+				
+				<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer" style="display:none;">
+				<div class="rewards-line"><a href="javascript:void(0);" onClick="window.open('https://www.smartcardglobal.com/register','_system');" >Get a SmartCard</a></div>
+				</div>
+				
+				<div class="left-align">
+				<div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
+				<ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
+				<div class="rounded-image">
+				<p><img src="images/rounded.png"><span>Name</span></p>
+				</div>
+				<li><a href="javascript:void(0);" onclick="dashboard()" class="one active">Dashboard</a></li>
+				<li><a href="javascript:void(0);" onClick="viewProfile()" class="two">My Profile</a></li>
+				<li><a href="javascript:void(0);" onClick="editProfile()" class="two">Edit Profile</a></li>
+				<li><a href="#change-password" class="three">Change Password</a></li>
+				<li><a href="javascript:void(0);" onclick="organizerList()" class="four">Organizers</a></li>
+				<li><a href="javascript:void(0);" onclick="favouriteEventList()" class="five">Favourite Events</a></li>
+				<li><a href="javascript:void(0);" onclick="venueList()" class="six">Popular Venues</a></li>
+				<li><a href="javascript:void(0);" onclick="reviewRating()" class="Saven">Review & Ratings</a></li>
+				<li><a href="javascript:void(0);" onclick="followerList()" class="ete">Followers</a></li>
+				<li><a href="javascript:void(0);" onclick="feedbackAdd()" class="ten">Feedback</a></li>
+				<li><a href="javascript:void(0);" onClick="logout();" class="eleone" data-ajax="false">Logout</a></li>
+				</ul>
+				</div>
+				</div>
+				</div>
+				
+				
+				
+				<!----------- Venues List ------------>
+				<div data-role="page" class="jqm-demos jqm-page jqm-card" id="venue-list" data-url="venue-list">
+				<div data-role="header" class="jqm-header">
+				<div class="right-icon width-right"> <a href="javascript:void(0);" onClick="onBackKeyDown()" class="back-button"><img src="images/filter.png" alt=""></a> </div>
+				<div class="left-icon"> <a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a> </div>
+				<h1 class="title">Venues</h1>
+				</div>
+				
+				<div class="venuelistHtml"></div>
+				
+				<div class="padding-space" style="padding-top: 23%;">
+				<div class="loderimages loader_venuelist"><img src="images/loader-page.gif">
+				<p>Loading...</p>
+				</div>
+				<p class="errorMsgShow" style="text-align:center; display:none;"></p>
+				</div>
+				
+				<div class="left-align">
+				<div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
+				<ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
+				<div class="rounded-image">
+				<p><img src="images/rounded.png"><span>Name</span></p>
+				</div>
+				<li><a href="javascript:void(0);" onclick="dashboard()" class="one active">Dashboard</a></li>
+				<li><a href="javascript:void(0);" onClick="viewProfile()" class="two">My Profile</a></li>
+				<li><a href="javascript:void(0);" onClick="editProfile()" class="two">Edit Profile</a></li>
+				<li><a href="#change-password" class="three">Change Password</a></li>
+				<li><a href="javascript:void(0);" onclick="organizerList()" class="four">Organizers</a></li>
+				<li><a href="javascript:void(0);" onclick="favouriteEventList()" class="five">Favourite Events</a></li>
+				<li><a href="javascript:void(0);" onclick="venueList()" class="six">Popular Venues</a></li>
+				<li><a href="javascript:void(0);" onclick="reviewRating()" class="Saven">Review & Ratings</a></li>
+				<li><a href="javascript:void(0);" onclick="followerList()" class="ete">Followers</a></li>
+				<li><a href="javascript:void(0);" onclick="feedbackAdd()" class="ten">Feedback</a></li>
+				<li><a href="javascript:void(0);" onClick="logout();" class="eleone" data-ajax="false">Logout</a></li>
+				</ul>
+				</div>
+				</div>
+				</div>
+				<!-- /page -->
+				
+				
+				
+				<!----------- Venues Detail ------------>
+				<div data-role="page" class="jqm-demos jqm-page jqm-card" id="venue-detail" data-url="venue-detail">
+				
+				<div data-role="header" class="jqm-header">
+				<div class="left-icon"> <a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a> </div>
+				<h1 class="title">Venue Details</h1>
+				</div>
+				
+				<div class="venueDetailHtml"></div>
+				
+				<div class="padding-space" style="padding-top: 23%;">
+				<div class="loderimages loader_venue_detail"><img src="images/loader-page.gif">
+				<p>Loading...</p>
+				</div>
+				<p class="errorMsgShow" style="text-align:center; display:none;"></p>
+				</div> 
+				
+				<div class="left-align">
+				<div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
+				<ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
+				<div class="rounded-image">
+				<p><img src="images/rounded.png"><span>Name</span></p>
+				</div>
+				<li><a href="javascript:void(0);" onclick="dashboard()" class="one active">Dashboard</a></li>
+				<li><a href="javascript:void(0);" onClick="viewProfile()" class="two">My Profile</a></li>
+				<li><a href="javascript:void(0);" onClick="editProfile()" class="two">Edit Profile</a></li>
+				<li><a href="#change-password" class="three">Change Password</a></li>
+				<li><a href="javascript:void(0);" onclick="organizerList()" class="four">Organizers</a></li>
+				<li><a href="javascript:void(0);" onclick="favouriteEventList()" class="five">Favourite Events</a></li>
+				<li><a href="javascript:void(0);" onclick="venueList()" class="six">Popular Venues</a></li>
+				<li><a href="javascript:void(0);" onclick="reviewRating()" class="Saven">Review & Ratings</a></li>
+				<li><a href="javascript:void(0);" onclick="followerList()" class="ete">Followers</a></li>
+				
+				<li><a href="javascript:void(0);" onclick="feedbackAdd()" class="ten">Feedback</a></li>
+				<li><a href="javascript:void(0);" onClick="logout();" class="eleone" data-ajax="false">Logout</a></li>
+				</ul>
+				</div>
+				</div>
+				
+				</div>
+				
+				
+				
+				<!----------- Favourite Event List ------------>
+				<div data-role="page" class="jqm-demos jqm-page jqm-card" id="favourite-event-list" data-url="favourite-event-list">
+				<div data-role="header" class="jqm-header">
+				<div class="right-icon width-right"> <a href="javascript:void(0);" onClick="onBackKeyDown()" class="back-button"><img src="images/filter.png" alt=""></a> </div>
+				<div class="left-icon"> <a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a> </div>
+				<h1 class="title">Favourite Events</h1>
+				</div>
+				
+				<div class="favouriteeventlistHtml"></div>
+				
+				<div class="padding-space" style="padding-top: 23%;">
+				<div class="loderimages loader_favouriteeventlist"><img src="images/loader-page.gif">
+				<p>Loading...</p>
+				</div>
+				<p class="errorMsgShow" style="text-align:center; display:none;"></p>
+				</div>
+				
+				<div class="left-align">
+				<div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
+				<ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
+				<div class="rounded-image">
+				<p><img src="images/rounded.png"><span>Name</span></p>
+				</div>
+				<li><a href="javascript:void(0);" onclick="dashboard()" class="one active">Dashboard</a></li>
+				<li><a href="javascript:void(0);" onClick="viewProfile()" class="two">My Profile</a></li>
+				<li><a href="javascript:void(0);" onClick="editProfile()" class="two">Edit Profile</a></li>
+				<li><a href="#change-password" class="three">Change Password</a></li>
+				<li><a href="javascript:void(0);" onclick="organizerList()" class="four">Organizers</a></li>
+				<li><a href="javascript:void(0);" onclick="favouriteEventList()" class="five">Favourite Events</a></li>
+				<li><a href="javascript:void(0);" onclick="venueList()" class="six">Popular Venues</a></li>
+				<li><a href="javascript:void(0);" onclick="reviewRating()" class="Saven">Review & Ratings</a></li>
+				<li><a href="javascript:void(0);" onclick="followerList()" class="ete">Followers</a></li>
+				
+				<li><a href="javascript:void(0);" onclick="feedbackAdd()" class="ten">Feedback</a></li>
+				<li><a href="javascript:void(0);" onClick="logout();" class="eleone" data-ajax="false">Logout</a></li>
+				</ul>
+				</div>
+				</div>
+				</div>
+				<!-- /page -->
+				
+				
+				<!----------- Review Rating ------------>
+				<div data-role="page" class="jqm-demos jqm-page jqm-card" id="review-rating" data-url="review-rating">
+				
+				<div data-role="header" class="jqm-header">
+				<div class="left-icon"> <a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a> </div>
+				<h1 class="title">Review & Ratings</h1>
+				</div>
+				
+				<div class="reviewReviewHtml"></div>
+				
+				<div class="padding-space" style="padding-top: 23%;">
+				<div class="loderimages loader_review_review"><img src="images/loader-page.gif">
+				<p>Loading...</p>
+				</div>
+				<p class="errorMsgShow" style="text-align:center; display:none;"></p>
+				</div>
+				
+				<div class="left-align">
+				<div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
+				<ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
+				<div class="rounded-image">
+				<p><img src="images/rounded.png"><span>Name</span></p>
+				</div>
+				<li><a href="javascript:void(0);" onclick="dashboard()" class="one active">Dashboard</a></li>
+				<li><a href="javascript:void(0);" onClick="viewProfile()" class="two">My Profile</a></li>
+				<li><a href="javascript:void(0);" onClick="editProfile()" class="two">Edit Profile</a></li>
+				<li><a href="#change-password" class="three">Change Password</a></li>
+				<li><a href="javascript:void(0);" onclick="organizerList()" class="four">Organizers</a></li>
+				<li><a href="javascript:void(0);" onclick="favouriteEventList()" class="five">Favourite Events</a></li>
+				<li><a href="javascript:void(0);" onclick="venueList()" class="six">Popular Venues</a></li>
+				<li><a href="javascript:void(0);" onclick="reviewRating()" class="Saven">Review & Ratings</a></li>
+				<li><a href="javascript:void(0);" onclick="followerList()" class="ete">Followers</a></li>
+				<li><a href="javascript:void(0);" onclick="feedbackAdd()" class="ten">Feedback</a></li>
+				<li><a href="javascript:void(0);" onClick="logout();" class="eleone" data-ajax="false">Logout</a></li>
+				</ul>
+				</div>
+				</div>
+				
+				</div>
+				
+				
+				
+				
+				<script src="js/index.js"></script>
+				
+				<script type="text/javascript"> 
+				
+				$(function () {
+				var rating = '3'; 
+				var item = $(this);
+				$(".rating_add_review").rateYo({
+				rating: rating,
+				numStars: 5,
+				precision: 5,
+				minValue: 1,
+				maxValue: 5,
+				starWidth: "13px",
+				multiColor: {
+				startColor: "#098f5c",
+				endColor  : "#ffffff"
+				},
+				}).on("rateyo.change", function (e, data) {
+				$('#rating_review').val(data.rating);
+				console.log(data.rating);
+				});
+				}); 
+				
+				function init_map(fom_add, latitude, longitude, id) {
+				
+				var  latitude = latitude;
+				var  longitude = longitude;
+				var  fom_add = fom_add;
+				
+				var myOptions = {
+				zoom: 15,
+				center: new google.maps.LatLng(latitude, longitude),
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+				};
+				map = new google.maps.Map(document.getElementById("gmap_canvas_"+id), myOptions);
+				marker = new google.maps.Marker({
+				position: new google.maps.LatLng(latitude, longitude),
+				map: map
+				});
+				
+				infowindow = new google.maps.InfoWindow({
+				content: fom_add
+				});
+				
+				google.maps.event.addListener(marker, "click", function () {
+				infowindow.open(map, marker);
+				});
+				infowindow.open(map, marker); 
+				} 
+				
+				</script>
+				
+				</body>
+				</html>										
