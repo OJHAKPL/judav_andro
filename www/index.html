@@ -22,7 +22,17 @@
 		<script type="text/javascript" src="https://maps.google.com/maps/api/js"></script>
 	</head>
 	
-	<body>		
+	<body>	
+	
+		<script type="text/javascript">
+			photo = localStorage.getItem('photo');
+			full_name = localStorage.getItem('full_name');
+			$(function () {
+				$('.profile_name').text(full_name);
+				$('.profile_photo').attr('src',photo);
+			});
+		</script> 
+	
 		<div data-role="page" class="jqm-demos jqm-home" id="index" data-url="index">
 			<div role="main" class="ui-content jqm-content">			
 				<div class="home-logo"><img class="b-radiu-logo" src="images/logo.png" alt="" /></div>
@@ -151,16 +161,16 @@
 		<div data-role="page" class="jqm-demos jqm-page jqm-card" id="dashboard" data-url="dashboard">        
 			
 			<div data-role="header" class="jqm-header">
-				<div class="right-icon">
+				<!--<div class="right-icon">
                 	<a href="javascript:void(0);" onClick="notifications()" class="back-button"><img src="images/note.png" alt=""></a>
-				</div>
+				</div>-->
                 <div class="left-icon">
                 	<a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a>
 				</div>
                 <h1 class="title">Dashboard</h1>
 			</div>
 			
-			<div id="headingHtml" >
+			<div id="headingHtml">
 				
 			</div>
 			
@@ -184,7 +194,7 @@
 			<div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
 				<ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
 					<div class="rounded-image">
-						<p><img src="images/rounded.png"><span>Name</span></p>
+						<p><img class="profile_photo" alt="Judav" src="images/rounded.png"><span class="profile_name">Name</span></p>
 					</div>
 					<li><a href="javascript:void(0);" onclick="dashboard()" class="one active">Dashboard</a></li>
 					<li><a href="javascript:void(0);" onClick="viewProfile()" class="two">My Profile</a></li>
@@ -226,7 +236,7 @@
 				<div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
 					<ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
 						<div class="rounded-image">
-							<p><img src="images/rounded.png"><span>Name</span></p>
+							<p><img class="profile_photo" alt="Judav" src="images/rounded.png"><span class="profile_name">Name</span></p>
 						</div>
 						<li><a href="javascript:void(0);" onclick="dashboard()" class="one active">Dashboard</a></li>
 						<li><a href="javascript:void(0);" onClick="viewProfile()" class="two">My Profile</a></li>
@@ -269,7 +279,7 @@
 				<div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
 					<ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
 						<div class="rounded-image">
-							<p><img src="images/rounded.png"><span>Name</span></p>
+							<p><img class="profile_photo" alt="Judav" src="images/rounded.png"><span class="profile_name">Name</span></p>
 						</div>
 						<li><a href="javascript:void(0);" onclick="dashboard()" class="one active">Dashboard</a></li>
 						<li><a href="javascript:void(0);" onClick="viewProfile()" class="two">My Profile</a></li>
@@ -292,9 +302,9 @@
 		<div data-role="page" class="jqm-demos jqm-page jqm-card" id="change-password" data-url="change-password">        
 			
 			<div data-role="header" class="jqm-header">
-				<div class="right-icon">
+				<!--<div class="right-icon">
                 	<a href="javascript:void(0);" onClick="notifications()" class="back-button"><img src="images/note.png" alt=""></a>
-				</div>	
+				</div>-->	
 				<div class="left-icon"> <a href="javascript:void(0);" onClick="onBackKeyDown()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/back-icon.png" alt="" width="10px;"></a> </div>
 				
                 <h1 class="title">Change Password</h1>
@@ -344,7 +354,7 @@
 				<div data-role="page" class="jqm-demos jqm-page jqm-card" id="view-profile" data-url="view-profile">
 				
 				<div data-role="header" class="jqm-header">
-				<div class="right-icon"> <a class="back-button ui-link" onClick="notifications()" type="button" href="javascript:void(0);"><img alt="" src="images/note.png"></a> </div>
+				<!--<div class="right-icon"><a class="back-button ui-link" onClick="notifications()" type="button" href="javascript:void(0);"><img alt="" src="images/note.png"></a> </div>-->
 				<div class="left-icon"> <a href="javascript:void(0);" onClick="onBackKeyDown()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/back-icon.png" alt="" width="10px;"></a> </div>
 				<h1 class="title">My Profile</h1>
 				</div>
@@ -394,7 +404,7 @@
 				<div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
 				<ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
 				<div class="rounded-image">
-				<p><img src="images/rounded.png"><span>Name</span></p>
+				<p><img class="profile_photo" alt="Judav" src="images/rounded.png"><span class="profile_name">Name</span></p>
 				</div>
 				<li><a href="javascript:void(0);" onclick="dashboard()" class="one active">Dashboard</a></li>
 				<li><a href="javascript:void(0);" onClick="viewProfile()" class="two">My Profile</a></li>
@@ -452,7 +462,7 @@
 				<div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
 				<ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
 				<div class="rounded-image">
-				<p><img src="images/rounded.png"><span>Name</span></p>
+				<p><img class="profile_photo" alt="Judav" src="images/rounded.png"><span class="profile_name">Name</span></p>
 				</div>
 				<li><a href="javascript:void(0);" onclick="dashboard()" class="one active">Dashboard</a></li>
 				<li><a href="javascript:void(0);" onClick="viewProfile()" class="two">My Profile</a></li>
@@ -495,7 +505,7 @@
 				<div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
 				<ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
 				<div class="rounded-image">
-				<p><img src="images/rounded.png"><span>Name</span></p>
+				<p><img class="profile_photo" alt="Judav" src="images/rounded.png"><span class="profile_name">Name</span></p>
 				</div>
 				<li><a href="javascript:void(0);" onclick="dashboard()" class="one active">Dashboard</a></li>
 				<li><a href="javascript:void(0);" onClick="viewProfile()" class="two">My Profile</a></li>
@@ -537,7 +547,7 @@
 				<div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
 				<ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
 				<div class="rounded-image">
-				<p><img src="images/rounded.png"><span>Name</span></p>
+				<p><img class="profile_photo" alt="Judav" src="images/rounded.png"><span class="profile_name">Name</span></p>
 				</div>
 				<li><a href="javascript:void(0);" onclick="dashboard()" class="one active">Dashboard</a></li>
 				<li><a href="javascript:void(0);" onClick="viewProfile()" class="two">My Profile</a></li>
@@ -562,7 +572,7 @@
 				<div data-role="page" class="jqm-demos jqm-page jqm-card" id="event-review-add" data-url="event-review-add">
 				
 				<div data-role="header" class="jqm-header">
-				<div class="right-icon"> <a href="javascript:void(0);" onClick="notifications()" class="back-button"><img src="images/note.png" alt=""></a> </div>
+				<!--<div class="right-icon"><a href="javascript:void(0);" onClick="notifications()" class="back-button"><img src="images/note.png" alt=""></a> </div>-->
 				<div class="left-icon"> <a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a> </div>
 				<h1 class="title">Event Review</h1>
 				</div>
@@ -594,7 +604,7 @@
 				<div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
 				<ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
 				<div class="rounded-image">
-				<p><img src="images/rounded.png"><span>Name</span></p>
+				<p><img class="profile_photo" alt="Judav" src="images/rounded.png"><span class="profile_name">Name</span></p>
 				</div>
 				<li><a href="javascript:void(0);" onclick="dashboard()" class="one active">Dashboard</a></li>
 				<li><a href="javascript:void(0);" onClick="viewProfile()" class="two">My Profile</a></li>
@@ -641,7 +651,7 @@
 				<div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
 				<ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
 				<div class="rounded-image">
-				<p><img src="images/rounded.png"><span>Name</span></p>
+				<p><img class="profile_photo" alt="Judav" src="images/rounded.png"><span class="profile_name">Name</span></p>
 				</div>
 				<li><a href="javascript:void(0);" onclick="dashboard()" class="one active">Dashboard</a></li>
 				<li><a href="javascript:void(0);" onClick="viewProfile()" class="two">My Profile</a></li>
@@ -684,7 +694,7 @@
 				<!----------- Add Feedback ------------>
 				<div data-role="page" class="jqm-demos jqm-page jqm-card" id="add-feedback" data-url="add-feedback">
 				<div data-role="header" class="jqm-header">
-				<div class="right-icon"> <a href="javascript:void(0);" onClick="notifications()" class="back-button"><img src="images/note.png" alt=""></a> </div>
+				<!--<div class="right-icon"><a href="javascript:void(0);" onClick="notifications()" class="back-button"><img src="images/note.png" alt=""></a> </div>-->
 				<div class="left-icon"> <a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a> </div>
 				<h1 class="title">Feedback</h1>
 				</div>
@@ -717,7 +727,7 @@
 				<div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
 				<ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
 				<div class="rounded-image">
-				<p><img src="images/rounded.png"><span>Name</span></p>
+				<p><img class="profile_photo" alt="Judav" src="images/rounded.png"><span class="profile_name">Name</span></p>
 				</div>
 				<li><a href="javascript:void(0);" onclick="dashboard()" class="one active">Dashboard</a></li>
 				<li><a href="javascript:void(0);" onClick="viewProfile()" class="two">My Profile</a></li>
@@ -740,7 +750,7 @@
 				<!----------- Edit Profile ------------>
 				<div data-role="page" class="jqm-demos jqm-page jqm-card" id="edit-profile" data-url="edit-profile">
 				<div data-role="header" class="jqm-header">
-				<div class="right-icon"> <a href="javascript:void(0);" onClick="notifications()" class="back-button"><img src="images/note.png" alt=""></a> </div>
+				<!--<div class="right-icon"><a href="javascript:void(0);" onClick="notifications()" class="back-button"><img src="images/note.png" alt=""></a> </div>-->
 				<div class="left-icon"> <a href="javascript:void(0);" onClick="navigationOpen()" class="jqm-navmenu-link1 menu-button ui-link"><img src="images/menu-icon.png" alt=""></a> </div>
 				<h1 class="title">Edit Profile</h1>
 				</div>
@@ -762,7 +772,7 @@
 				<div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
 				<ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
 				<div class="rounded-image">
-				<p><img src="images/rounded.png"><span>Name</span></p>
+				<p><img class="profile_photo" alt="Judav" src="images/rounded.png"><span class="profile_name">Name</span></p>
 				</div>
 				<li><a href="javascript:void(0);" onclick="dashboard()" class="one active">Dashboard</a></li>
 				<li><a href="javascript:void(0);" onClick="viewProfile()" class="two">My Profile</a></li>
@@ -803,7 +813,7 @@
 				<div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
 				<ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
 				<div class="rounded-image">
-				<p><img src="images/rounded.png"><span>Name</span></p>
+				<p><img class="profile_photo" alt="Judav" src="images/rounded.png"><span class="profile_name">Name</span></p>
 				</div>
 				<li><a href="javascript:void(0);" onclick="dashboard()" class="one active">Dashboard</a></li>
 				<li><a href="javascript:void(0);" onClick="viewProfile()" class="two">My Profile</a></li>
@@ -845,7 +855,7 @@
 				<div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
 				<ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
 				<div class="rounded-image">
-				<p><img src="images/rounded.png"><span>Name</span></p>
+				<p><img class="profile_photo" alt="Judav" src="images/rounded.png"><span class="profile_name">Name</span></p>
 				</div>
 				<li><a href="javascript:void(0);" onclick="dashboard()" class="one active">Dashboard</a></li>
 				<li><a href="javascript:void(0);" onClick="viewProfile()" class="two">My Profile</a></li>
@@ -888,7 +898,7 @@
 				<div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
 				<ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
 				<div class="rounded-image">
-				<p><img src="images/rounded.png"><span>Name</span></p>
+				<p><img class="profile_photo" alt="Judav" src="images/rounded.png"><span class="profile_name">Name</span></p>
 				</div>
 				<li><a href="javascript:void(0);" onclick="dashboard()" class="one active">Dashboard</a></li>
 				<li><a href="javascript:void(0);" onClick="viewProfile()" class="two">My Profile</a></li>
@@ -930,7 +940,7 @@
 				<div data-role="panel" class="menu-new main-menu jqm-navmenu-panel" data-position="left" data-display="overlay">
 				<ul class="jqm-list ui-alt-icon ui-nodisc-icon bg-chang-top">
 				<div class="rounded-image">
-				<p><img src="images/rounded.png"><span>Name</span></p>
+				<p><img class="profile_photo" alt="Judav" src="images/rounded.png"><span class="profile_name">Name</span></p>
 				</div>
 				<li><a href="javascript:void(0);" onclick="dashboard()" class="one active">Dashboard</a></li>
 				<li><a href="javascript:void(0);" onClick="viewProfile()" class="two">My Profile</a></li>

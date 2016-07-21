@@ -1,5 +1,5 @@
-	window.webservice_url = "http://192.168.1.16/projects/laravel/judav/admin/";
-	//window.webservice_url = "https://www.smartcardglobal.com/admin/";
+	//window.webservice_url = "http://192.168.1.16/projects/laravel/judav/admin/";
+	window.webservice_url = "http://judav.com/admin/";
 	
 	$(document).on('pagebeforecreate', '[data-role="page"]', function() {
 		//checkConnection();
@@ -340,13 +340,18 @@
 						var htmlStr='';
 						$.each(dataArray, function(i, field){
 							if(field.email){
+								photo_url =  webservice_url+'../upload/users/profile-photo/thumb/'+field.photo;
 								if($('#keep_me_login').is(":checked")) {
 									localStorage.setItem('email', field.email);
 									localStorage.setItem('userid', field.id);
+									localStorage.setItem('photo', photo_url);
+									localStorage.setItem('full_name', field.full_name);
 									localStorage.setItem('varify_hash', field.varify_hash);
 								} else {
 									localStorage.setItem('userid-2', field.id);
 									localStorage.setItem('varify_hash', field.varify_hash);
+									localStorage.setItem('photo', photo_url);
+									localStorage.setItem('full_name', field.full_name);
 								}
 								dashboard(field.id);
 								//$.mobile.changePage("#dashboard",{allowSamePageTransition:false,reloadPage:false,changeHash:true,transition:"slide"});
@@ -366,7 +371,14 @@
 	
 	
 	function notifications() {
-		$.mobile.changePage("#notify_div",{allowSamePageTransition:false,reloadPage:false,changeHash:true,transition:"slide"});
+	
+		user_id = localStorage.getItem('userid');
+		if(user_id==null || user_id==''){
+			user_id = localStorage.getItem('userid-2');
+		}
+		if(user_id){
+			varify_hash = localStorage.getItem('varify_hash');
+			$.mobile.changePage("#notify_div",{allowSamePageTransition:false,reloadPage:false,changeHash:true,transition:"slide"});
 			$.ajax({
 				type: 'POST',
 				url: webservice_url+'notifications',
@@ -385,9 +397,9 @@
 				},
 				dataType: 'html'
 			});
-		
-	
+		}
 	}
+	
 	/*--------- Dashboard -----------*/
 	
 	function dashboard(user_id) {
